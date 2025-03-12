@@ -80,7 +80,9 @@
   }
 }
 
-/* Hero Section */
+/////////////////////////////////////////////////////
+// HERO SECTION
+
 .hero {
   height: 100vh;
   display: flex;
@@ -97,66 +99,72 @@
   }
 }
 
-.title {
-  font-size: 70px;
-  line-height: 1.2;
-  font-weight: 400;
-  max-width: 1500px;
-  margin: auto;
-  text-align: center;
-}
+.carousel {
+  margin-top: 100px;
+  perspective: 1000px;
 
-/* Emotion Section */
-.emotionSection {
-  background-color: #c1ff2e;
-  padding: 4rem 2rem;
-
-  .emotionContent {
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  .emotionTitle {
-    font-size: 2.5rem;
-    font-weight: 700;
+  .carouselWrap {
+    transform-style: preserve-3d;
     display: flex;
-    align-items: center;
-    @media (min-width: 768px) {
-      font-size: 3rem;
-    }
-  }
+    gap: 4vw;
+    transition: all 0.1s linear;
 
-  .heartIcon {
-    margin-left: 0.5rem;
-    color: #ff4d4d;
-    width: 2rem;
-    height: 2rem;
+    .image {
+      .imageInner {
+        position: relative;
+        height: 20vw;
+        width: 20vw;
+        border-radius: 50px;
+        overflow: hidden;
+
+        .imageInnerInner {
+          position: absolute;
+          inset: 0 -50px;
+          transition: all 0.1s linear;
+
+          img {
+            height: 100%;
+            width: 100%;
+            position: relative;
+          }
+        }
+      }
+    }
   }
 }
 
-/* Value Section */
-.valueSection {
-  background-color: #c1ff2e;
-  padding: 0 2rem 4rem;
+/////////////////////////////////////////////////////
+// ABOUT SECTION
 
-  .valueContent {
-    max-width: 1400px;
-    margin: 0 auto;
-    @media (min-width: 768px) {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+.aboutSection {
+  background-color: var(--green-color);
+  padding: 200px 0 250px;
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .left {
+    h2 {
+      font-size: 60px;
+      line-height: 1.1;
+      font-weight: 300;
     }
   }
 
-  .valueLead {
-    font-size: 1.25rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
-  }
+  .right {
+    p {
+      font-size: 30px;
+      line-height: 1.35;
+      font-weight: 300;
 
-  .valueText {
-    color: rgba(0, 0, 0, 0.8);
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+    }
   }
 }
 

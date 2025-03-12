@@ -18,17 +18,6 @@ export default function Home() {
     'Our support team is available to help with any issues that arise after launch. We provide maintenance, updates, and improvements to keep your software running smoothly.',
   ];
 
-  // Images for the top carousel
-  const heroImages = [
-    '/placeholder.svg?height=300&width=300',
-    '/placeholder.svg?height=300&width=300',
-    '/placeholder.svg?height=300&width=300',
-    '/placeholder.svg?height=300&width=300',
-    '/placeholder.svg?height=300&width=300',
-    '/placeholder.svg?height=300&width=300',
-    '/placeholder.svg?height=300&width=300',
-  ];
-
   // Featured work projects
   const projects = [
     { title: 'BeautifyMe Shop', category: 'E-commerce' },
@@ -57,6 +46,7 @@ export default function Home() {
     'Support and maintenance',
   ];
 
+  // HEADER CODE (desktop)
   const [wrapperWidth, setWrapperWidth] = useState<number>(0);
   const [initialWidth, setInitialWidth] = useState<number>(0);
   const [headerBg, setHeaderBg] = useState<string>('rgba(245, 245, 245, 0)');
@@ -91,7 +81,7 @@ export default function Home() {
       setHeaderBg(bgColor);
 
       // Calculate padding based on color scroll ratio
-      const padding = `${40 * colorScrollRatio}px ${40 * colorScrollRatio}px`;
+      const padding = `${32 * colorScrollRatio}px ${40 * colorScrollRatio}px`;
       setWrapperPadding(padding);
     };
 
@@ -106,6 +96,30 @@ export default function Home() {
       window.removeEventListener('resize', updateDimensions);
     };
   }, [initialWidth]);
+
+  //////////////////////////////////////////////////////////
+
+  const [scrollOffset, setScrollOffset] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollOffset(window.pageYOffset);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Create an array of 7 images with their corresponding alt text
+  const heroImages = [
+    { src: '/image1.jpg', alt: 'Image 1' },
+    { src: '/image2.jpg', alt: 'Image 2' },
+    { src: '/image3.jpg', alt: 'Image 3' },
+    { src: '/image4.jpg', alt: 'Image 4' },
+    { src: '/image1.jpg', alt: 'Image 5' },
+    { src: '/image2.jpg', alt: 'Image 6' },
+    { src: '/image3.jpg', alt: 'Image 7' },
+  ];
 
   return (
     <div>
@@ -158,26 +172,65 @@ export default function Home() {
           <h1 className={styles.title}>
             We are a software agency that specializes in thinking differently
           </h1>
-        </section>
+          <div className={styles.carousel}>
+            <div
+              className={styles.carouselWrap}
+              style={{
+                transform: `rotateZ(1deg) translateZ(200px) rotateY(-4deg) translateX(-${scrollOffset}px)`,
+              }}
+            >
+              {heroImages.map((image, index) => {
+                // Use window.innerHeight if available, else default to 1 to avoid division by zero.
+                const vh =
+                  typeof window !== 'undefined' ? window.innerHeight : 1;
+                const progress = Math.min(scrollOffset / vh, 1);
+                const start = -5 * index;
+                const end = 50 - 5 * index;
+                const translate = start + progress * (end - start);
 
-        {/* Emotion Section */}
-        <section className={styles.emotionSection}>
-          <div className={styles.emotionContent}>
-            <h2 className={styles.emotionTitle}>It starts with emotion</h2>
+                return (
+                  <div key={index} className={styles.image}>
+                    <div className={styles.imageInner}>
+                      <div
+                        className={styles.imageInnerInner}
+                        style={{
+                          transform: `translate3d(${translate}px, 0, 0)`,
+                        }}
+                      >
+                        <Image
+                          src={image.src}
+                          alt={image.alt}
+                          width={800}
+                          height={800}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </section>
 
-        {/* Value Proposition Section */}
-        <section className={styles.valueSection}>
-          <div className={styles.valueContent}>
-            <p className={styles.valueLead}>
-              And ends with eye-catching design, authentic stories, and
-              meaningful experiences.
-            </p>
-            <p className={styles.valueText}>
-              We are software agency in Croatia that cares about you and your
-              brand, no matter the size or what industry your business is in.
-            </p>
+        {/* Emotion Section */}
+        <section id='about' className={styles.aboutSection}>
+          <div className='container'>
+            <div className={styles.grid}>
+              <div className={styles.left}>
+                <h2>It starts with emotion</h2>
+              </div>
+              <div className={styles.right}>
+                <p>
+                  And ends with eye-catching design, authentic stories, and
+                  meaningful experiences.
+                </p>
+                <p>
+                  We are a software agency in Croatia that cares about you and
+                  your brand, no matter the size or what industry your business
+                  is in.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
