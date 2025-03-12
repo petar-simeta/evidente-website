@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './page.module.scss';
@@ -57,12 +57,69 @@ export default function Home() {
     'Support and maintenance',
   ];
 
+  const [wrapperWidth, setWrapperWidth] = useState<number>(0);
+  const [initialWidth, setInitialWidth] = useState<number>(0);
+  const [headerBg, setHeaderBg] = useState<string>('rgba(245, 245, 245, 0)');
+  const [wrapperPadding, setWrapperPadding] = useState<string>('0 0');
+
+  useEffect(() => {
+    // Update container dimensions on mount and resize
+    const updateDimensions = () => {
+      const container = document.querySelector('.container');
+      if (!container) return;
+      const width = container.clientWidth;
+      setInitialWidth(width);
+      setWrapperWidth(width);
+    };
+
+    // Handle scroll effects for width, background and padding
+    const handleScroll = () => {
+      const scrollPos = window.pageYOffset;
+
+      // For color and padding (0-400)
+      const colorScrollRatio = Math.min(Math.max(scrollPos, 0), 400) / 400;
+
+      // For width (0-1000)
+      const widthScrollRatio = Math.min(Math.max(scrollPos, 0), 1000) / 1000;
+
+      // Calculate new width using width scroll ratio
+      const newWidth = initialWidth - (initialWidth - 1000) * widthScrollRatio;
+      setWrapperWidth(newWidth);
+
+      // Calculate background opacity based on color scroll ratio
+      const bgColor = `rgba(245, 245, 245, ${colorScrollRatio})`;
+      setHeaderBg(bgColor);
+
+      // Calculate padding based on color scroll ratio
+      const padding = `${40 * colorScrollRatio}px ${40 * colorScrollRatio}px`;
+      setWrapperPadding(padding);
+    };
+
+    // Initialize and set up event listeners
+    updateDimensions();
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', updateDimensions);
+
+    // Cleanup event listeners
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateDimensions);
+    };
+  }, [initialWidth]);
+
   return (
     <div>
       {/* Header */}
       <header className={styles.header}>
         <div className='container'>
-          <div className={styles.wrapper}>
+          <div
+            className={styles.wrapper}
+            style={{
+              width: `${wrapperWidth}px`,
+              backgroundColor: headerBg,
+              padding: wrapperPadding,
+            }}
+          >
             <div className={styles.logo}>
               <Image
                 src='/evidente-logo.svg'
@@ -98,27 +155,9 @@ export default function Home() {
       <main>
         {/* Hero Section */}
         <section className={styles.hero}>
-          <h1>
-            We&apos;re a software agency that specializes in thinking
-            differently
+          <h1 className={styles.title}>
+            We are a software agency that specializes in thinking differently
           </h1>
-
-          <div className={styles.heroCarousel}>
-            <div className={styles.carouselTrack}>
-              {/* Duplicate images for infinite carousel effect */}
-              {[...heroImages, ...heroImages].map((src, index) => (
-                <div key={index} className={styles.carouselItem}>
-                  <Image
-                    src={src || '/placeholder.svg'}
-                    alt={`Showcase image ${(index % heroImages.length) + 1}`}
-                    width={300}
-                    height={300}
-                    className={styles.carouselImage}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
         </section>
 
         {/* Emotion Section */}
