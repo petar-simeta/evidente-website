@@ -12,7 +12,7 @@ const unbounded = Unbounded({
 });
 
 export const metadata: Metadata = {
-  title: 'EVIDENT3 - Software Agency',
+  title: 'EVIDENTE | Web solutions',
   description:
     "We're a software agency that specializes in thinking differently",
 };
