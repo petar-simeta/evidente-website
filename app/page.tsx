@@ -1,9 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { motion, useInView } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './page.module.scss';
+import HeroSection from './components/heroSection';
 
 export default function Home() {
   const [activeService, setActiveService] = useState(0);
@@ -81,7 +83,7 @@ export default function Home() {
       setHeaderBg(bgColor);
 
       // Calculate padding based on color scroll ratio
-      const padding = `${32 * colorScrollRatio}px ${40 * colorScrollRatio}px`;
+      const padding = `${20 * colorScrollRatio}px ${20 * colorScrollRatio}px`;
       setWrapperPadding(padding);
     };
 
@@ -98,28 +100,6 @@ export default function Home() {
   }, [initialWidth]);
 
   //////////////////////////////////////////////////////////
-
-  const [scrollOffset, setScrollOffset] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollOffset(window.pageYOffset);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Create an array of 7 images with their corresponding alt text
-  const heroImages = [
-    { src: '/image1.jpg', alt: 'Image 1' },
-    { src: '/image2.jpg', alt: 'Image 2' },
-    { src: '/image3.jpg', alt: 'Image 3' },
-    { src: '/image4.jpg', alt: 'Image 4' },
-    { src: '/image1.jpg', alt: 'Image 5' },
-    { src: '/image2.jpg', alt: 'Image 6' },
-    { src: '/image3.jpg', alt: 'Image 7' },
-  ];
 
   return (
     <div>
@@ -167,50 +147,7 @@ export default function Home() {
       </header>
 
       <main>
-        {/* Hero Section */}
-        <section className={styles.hero}>
-          <h1 className={styles.title}>
-            We are a software agency that specializes in thinking differently
-          </h1>
-          <div className={styles.carousel}>
-            <div
-              className={styles.carouselWrap}
-              style={{
-                transform: `rotateZ(1deg) translateZ(200px) rotateY(-4deg) translateX(-${scrollOffset}px)`,
-              }}
-            >
-              {heroImages.map((image, index) => {
-                // Use window.innerHeight if available, else default to 1 to avoid division by zero.
-                const vh =
-                  typeof window !== 'undefined' ? window.innerHeight : 1;
-                const progress = Math.min(scrollOffset / vh, 1);
-                const start = -5 * index;
-                const end = 50 - 5 * index;
-                const translate = start + progress * (end - start);
-
-                return (
-                  <div key={index} className={styles.image}>
-                    <div className={styles.imageInner}>
-                      <div
-                        className={styles.imageInnerInner}
-                        style={{
-                          transform: `translate3d(${translate}px, 0, 0)`,
-                        }}
-                      >
-                        <Image
-                          src={image.src}
-                          alt={image.alt}
-                          width={800}
-                          height={800}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        <HeroSection />
 
         {/* Emotion Section */}
         <section id='about' className={styles.aboutSection}>
