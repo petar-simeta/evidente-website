@@ -54,6 +54,29 @@ export default function Home() {
   const [headerBg, setHeaderBg] = useState<string>('rgba(245, 245, 245, 0)');
   const [wrapperPadding, setWrapperPadding] = useState<string>('0 0');
 
+  // Function to handle scroll effects
+  const handleScroll = () => {
+    const scrollPos = window.pageYOffset;
+
+    // For color and padding (0-400)
+    const colorScrollRatio = Math.min(Math.max(scrollPos, 0), 400) / 400;
+
+    // For width (0-1000)
+    const widthScrollRatio = Math.min(Math.max(scrollPos, 0), 1000) / 1000;
+
+    // Calculate new width using width scroll ratio
+    const newWidth = initialWidth - (initialWidth - 1000) * widthScrollRatio;
+    setWrapperWidth(newWidth);
+
+    // Calculate background opacity based on color scroll ratio
+    const bgColor = `rgba(245, 245, 245, ${colorScrollRatio})`;
+    setHeaderBg(bgColor);
+
+    // Calculate padding based on color scroll ratio
+    const padding = `${20 * colorScrollRatio}px ${20 * colorScrollRatio}px`;
+    setWrapperPadding(padding);
+  };
+
   useEffect(() => {
     // Update container dimensions on mount and resize
     const updateDimensions = () => {
@@ -64,31 +87,13 @@ export default function Home() {
       setWrapperWidth(width);
     };
 
-    // Handle scroll effects for width, background and padding
-    const handleScroll = () => {
-      const scrollPos = window.pageYOffset;
-
-      // For color and padding (0-400)
-      const colorScrollRatio = Math.min(Math.max(scrollPos, 0), 400) / 400;
-
-      // For width (0-1000)
-      const widthScrollRatio = Math.min(Math.max(scrollPos, 0), 1000) / 1000;
-
-      // Calculate new width using width scroll ratio
-      const newWidth = initialWidth - (initialWidth - 1000) * widthScrollRatio;
-      setWrapperWidth(newWidth);
-
-      // Calculate background opacity based on color scroll ratio
-      const bgColor = `rgba(245, 245, 245, ${colorScrollRatio})`;
-      setHeaderBg(bgColor);
-
-      // Calculate padding based on color scroll ratio
-      const padding = `${20 * colorScrollRatio}px ${20 * colorScrollRatio}px`;
-      setWrapperPadding(padding);
-    };
-
-    // Initialize and set up event listeners
+    // Initialize dimensions
     updateDimensions();
+
+    // Check initial scroll position
+    handleScroll();
+
+    // Set up event listeners
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', updateDimensions);
 
@@ -104,7 +109,12 @@ export default function Home() {
   return (
     <div>
       {/* Header */}
-      <header className={styles.header}>
+      <motion.header
+        className={styles.header}
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1.2, type: 'spring', bounce: 0.4, delay: 0.5 }}
+      >
         <div className='container'>
           <div
             className={styles.wrapper}
@@ -144,7 +154,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </header>
+      </motion.header>
 
       <main>
         <HeroSection />
