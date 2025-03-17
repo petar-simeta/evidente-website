@@ -59,7 +59,16 @@ export default function HeroSection() {
           ))}
         </span>
       </h1>
-      <div className={styles.carousel}>
+      <motion.div
+        className={styles.carousel}
+        initial={{ scale: 0.2, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{
+          duration: 1,
+          type: 'spring',
+          bounce: 0.4,
+        }}
+      >
         <div
           className={styles.carouselWrap}
           style={{
@@ -95,7 +104,7 @@ export default function HeroSection() {
             );
           })}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
