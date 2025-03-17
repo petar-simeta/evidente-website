@@ -8,6 +8,7 @@ import styles from './page.module.scss';
 import HeroSection from './components/heroSection';
 import PreloaderWrapper from './components/preloaderWrapper';
 import Header from './components/header';
+import AboutSection from './components/aboutSection';
 
 export default function Home() {
   const [activeService, setActiveService] = useState(0);
@@ -59,27 +60,7 @@ export default function Home() {
         <main>
           <HeroSection />
 
-          {/* Emotion Section */}
-          <section id='about' className={styles.aboutSection}>
-            <div className='container'>
-              <div className={styles.grid}>
-                <div className={styles.left}>
-                  <h2>It starts with emotion</h2>
-                </div>
-                <div className={styles.right}>
-                  <p>
-                    And ends with eye-catching design, authentic stories, and
-                    meaningful experiences.
-                  </p>
-                  <p>
-                    We are a software agency in Croatia that cares about you and
-                    your brand, no matter the size or what industry your
-                    business is in.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
+          <AboutSection />
 
           {/* Features Section */}
           <section className={styles.featuresSection}>
