@@ -11,7 +11,7 @@ export default function PreloaderWrapper({ children }: PreloaderWrapperProps) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -19,31 +19,96 @@ export default function PreloaderWrapper({ children }: PreloaderWrapperProps) {
     <>
       <AnimatePresence mode='wait'>
         {loading ? (
-          <motion.div
-            key='preloader'
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              background: '#fff',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              zIndex: 9999,
-            }}
-          >
+          <>
             <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, ease: 'easeInOut', repeat: 0 }}
-            >
-              <h1 style={{ fontSize: '2rem', margin: 0 }}>Welcome</h1>
-            </motion.div>
-          </motion.div>
+              key='preloader-1'
+              initial={{ opacity: 1 }}
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                backgroundColor: '#000',
+                zIndex: 9995,
+              }}
+            />
+            <motion.div
+              key='preloader-2'
+              initial={{ y: '-100%' }}
+              animate={{ y: 0 }}
+              transition={{ delay: 1, duration: 0.2, ease: 'easeIn' }}
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                backgroundColor: '#C6FB50',
+                zIndex: 9996,
+              }}
+            />
+            <motion.div
+              key='preloader-3'
+              initial={{ y: '-100%' }}
+              animate={{ y: 0 }}
+              transition={{ delay: 1.3, duration: 0.2, ease: 'easeIn' }}
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                backgroundColor: '#fff',
+                zIndex: 9997,
+              }}
+            />
+            <motion.div
+              key='preloader-4'
+              initial={{ y: '-100%' }}
+              animate={{ y: 0 }}
+              transition={{ delay: 1.6, duration: 0.2, ease: 'easeIn' }}
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                backgroundColor: '#000',
+                zIndex: 9998,
+              }}
+            />
+            <motion.div
+              key='preloader-5'
+              initial={{ y: '-100%' }}
+              animate={{ y: 0 }}
+              transition={{ delay: 1.9, duration: 0.2, ease: 'easeIn' }}
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                backgroundColor: '#C6FB50',
+                zIndex: 9999,
+              }}
+            />
+            <motion.div
+              key='preloader-6'
+              initial={{ y: '-100%' }}
+              animate={{ y: 0 }}
+              transition={{ delay: 2.2, duration: 0.2, ease: 'easeIn' }}
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                backgroundColor: '#fff',
+                zIndex: 10000,
+              }}
+            />
+          </>
         ) : (
           children
         )}
