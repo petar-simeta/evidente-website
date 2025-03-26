@@ -102,7 +102,7 @@
   }
 }
 
-.carousel {
+/* .carousel {
   margin-top: 100px;
   perspective: 1000px;
 
@@ -130,6 +130,65 @@
             width: 100%;
             position: relative;
           }
+        }
+      }
+    }
+  }
+} */
+
+.carousel {
+  margin-top: 100px;
+
+  .carouselWrap {
+    position: relative;
+
+    .image {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+
+      .imageInner {
+        position: relative;
+        height: 25vw;
+        width: 25vw;
+        border-radius: 50px;
+        overflow: hidden;
+        transform-origin: 50% 150%;
+
+        .imageInnerInner {
+          position: absolute;
+          inset: 0 -50px;
+          transition: all 0.1s linear;
+
+          img {
+            height: 100%;
+            width: 100%;
+            position: relative;
+          }
+        }
+      }
+
+      @keyframes rotateImages {
+        0% {
+          rotate: 0deg;
+        }
+        100% {
+          rotate: 360deg;
+        }
+      }
+
+      $number-of-images: 8;
+      $duration-of-animation: 40s;
+
+      @for $i from 1 through $number-of-images {
+        &:nth-of-type(#{$i}) .imageInner {
+          rotate: calc(360deg / $number-of-images * #{$i});
+          z-index: #{$i};
+          animation: rotateImages $duration-of-animation linear infinite;
+          animation-delay: calc(
+            #{$i} * -1 * ($duration-of-animation / $number-of-images)
+          );
         }
       }
     }
