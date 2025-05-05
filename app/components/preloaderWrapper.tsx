@@ -59,7 +59,7 @@ export default function PreloaderWrapper({ children }: PreloaderWrapperProps) {
                 left: 0,
                 width: '100%',
                 height: '100%',
-                backgroundColor: '#fff',
+                backgroundColor: '#f5f5f5',
                 zIndex: 9997,
               }}
             />
@@ -104,7 +104,7 @@ export default function PreloaderWrapper({ children }: PreloaderWrapperProps) {
                 left: 0,
                 width: '100%',
                 height: '100%',
-                backgroundColor: '#fff',
+                backgroundColor: '#f5f5f5',
                 zIndex: 10000,
               }}
             />

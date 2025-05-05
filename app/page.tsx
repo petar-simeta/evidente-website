@@ -1,7 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion, useInView } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './page.module.scss';
@@ -10,6 +8,7 @@ import PreloaderWrapper from './components/preloaderWrapper';
 import Header from './components/header';
 import AboutSection from './components/aboutSection';
 import ServicesSection from './components/servicesSection';
+import WorkSection from './components/workSection';
 
 export default function Home() {
   // Featured work projects
@@ -99,34 +98,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Featured Work Section with Parallax */}
-          <section id='work' className={styles.workSection}>
-            <h2>Featured Work</h2>
-
-            <div className={styles.workSlider}>
-              <div className={styles.sliderTrack}>
-                {/* Duplicate projects for infinite carousel effect */}
-                {[...projects, ...projects].map((project, index) => (
-                  <div key={index} className={styles.projectCard}>
-                    <div className={styles.projectImage}>
-                      <Image
-                        src='/placeholder.svg?height=500&width=400'
-                        alt={project.title}
-                        width={400}
-                        height={500}
-                      />
-                    </div>
-                    <div className={styles.projectInfo}>
-                      <span className={styles.projectCategory}>
-                        {project.category}
-                      </span>
-                      <h3>{project.title}</h3>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
+          <WorkSection />
 
           <ServicesSection />
 

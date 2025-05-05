@@ -5,7 +5,7 @@
 }
 
 :root {
-  --green-color: #C6FB50;
+  --green-color: #c6fb50;
   --almost-white-color: #f5f5f5;
   --black-color: #232323;
   --dark-background: #1a1a1a;
@@ -20,7 +20,7 @@ body {
 
 body {
   color: var(--black-color);
-  background: #fff;
+  background: var(--almost-white-color);
   line-height: 1.35;
   margin: 0;
 }

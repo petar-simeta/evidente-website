@@ -57,7 +57,7 @@ export default function AboutSection() {
                   ))}
                 </span>
                 <span>
-                  {'emotion'.split('').map((char, index) => (
+                  {'emotion ✨'.split('').map((char, index) => (
                     <motion.span
                       key={index}
                       initial={{ opacity: 0 }}
