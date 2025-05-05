@@ -9,6 +9,7 @@ import Header from './components/header';
 import AboutSection from './components/aboutSection';
 import ServicesSection from './components/servicesSection';
 import WorkSection from './components/workSection';
+import FooterSection from './components/footerSection';
 
 export default function Home() {
   // Featured work projects
@@ -101,73 +102,9 @@ export default function Home() {
           <WorkSection />
 
           <ServicesSection />
-
-          {/* CTA Section */}
-          <section id='contact' className={styles.ctaSection}>
-            <div className={styles.ctaContent}>
-              <div className={styles.bookingTag}>
-                <span></span>
-                Booking
-              </div>
-              <h2>Let&apos;s Work Together</h2>
-              <p>
-                Fill out our form, schedule a call or reach out via email.{' '}
-                <br />
-                We&apos;ll be in touch in less than 24h.
-              </p>
-              <Link href='#' className={styles.startProjectButton}>
-                Start your project
-              </Link>
-
-              <div className={styles.clientLogos}>
-                <div className={styles.logoTrack}>
-                  {/* Duplicate logos for infinite carousel effect */}
-                  {[...clients, ...clients].map((src, index) => (
-                    <div key={index} className={styles.logoItem}>
-                      <Image
-                        src={src || '/placeholder.svg'}
-                        alt={`Client logo ${(index % clients.length) + 1}`}
-                        width={120}
-                        height={50}
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
         </main>
 
-        {/* Footer */}
-        <footer className={styles.footer}>
-          <div className={styles.footerContent}>
-            <div className={styles.footerTop}>
-              <div className={styles.footerInfo}>
-                <div className={styles.footerLogo}>EVIDENT3</div>
-                <p>
-                  We create solutions that drive your business. Get in touch.
-                </p>
-              </div>
-              <div className={styles.footerButtons}>
-                <Link href='#' className={styles.footerCta}>
-                  Start Your Project
-                </Link>
-                <Link href='#' className={styles.footerSecondary}>
-                  View our portfolio
-                </Link>
-              </div>
-            </div>
-
-            <div className={styles.footerBottom}>
-              <div>© Copyright 2025 Evidente</div>
-              <div className={styles.footerLinks}>
-                <Link href='#'>LinkedIn</Link>
-                <Link href='#'>Privacy Policy</Link>
-                <Link href='#'>Terms of Service</Link>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <FooterSection />
       </div>
     </PreloaderWrapper>
   );

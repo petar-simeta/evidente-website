@@ -638,105 +638,382 @@
 }
 
 /* Footer */
-.footer {
-  background-color: #1a1a1a;
-  color: white;
-  padding: 2rem;
 
-  .footerContent {
-    max-width: 1400px;
-    margin: 0 auto;
+.topSection {
+  background-color: var(--green-color);
+  padding: 4rem 2rem 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.bookingButton {
+  background-color: var(--black-color);
+  color: var(--almost-white-color);
+  border: none;
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.heading {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--black-color);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.subtext {
+  font-size: 1.1rem;
+  color: var(--black-color);
+  margin-bottom: 2.5rem;
+  line-height: 1.5;
+}
+
+.projectButton {
+  background-color: var(--almost-white-color);
+  color: var(--black-color);
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.bottomSection {
+  background-color: var(--dark-background);
+  flex: 1;
+  padding: 4rem 2rem 2rem;
+  color: var(--almost-white-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.leftContent {
+  flex: 1;
+  min-width: 300px;
+
+  .logo {
+    margin-bottom: 2rem;
   }
 
-  .footerTop {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-    @media (min-width: 768px) {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
+  .tagline {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+
+    span {
+      color: var(--green-color);
     }
   }
 
-  .footerLogo {
-    font-size: 1.25rem;
+  .teamName {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+}
+
+.startProjectButton {
+  background-color: var(--green-color);
+  color: var(--black-color);
+  border: none;
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  .arrow {
+    font-size: 1.2rem;
+  }
+}
+
+.clientLogos {
+  flex: 1;
+  min-width: 300px;
+
+  .logoGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+
+    .logoItem {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}
+
+.footer {
+  margin-top: auto;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 4rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+
+  .copyright {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .links {
+    display: flex;
+    gap: 1.5rem;
+
+    a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--green-color);
+      }
+    }
+  }
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.modalContent {
+  background-color: var(--almost-white-color);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  padding: 2.5rem;
+  color: var(--black-color);
+  animation: slideUp 0.4s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  .closeButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--black-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  }
+}
+
+.modalHeader {
+  margin-bottom: 2rem;
+  text-align: center;
+
+  h2 {
+    font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
   }
 
-  .footerInfo {
-    p {
-      font-size: 0.875rem;
-      color: #aaa;
-    }
+  p {
+    color: rgba(0, 0, 0, 0.6);
   }
+}
 
-  .footerButtons {
-    display: flex;
-    gap: 1rem;
-  }
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 
-  .footerCta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem 1.5rem;
-    font-weight: 500;
-    border-radius: 9999px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    background-color: #c1ff2e;
-    color: #000;
-    font-size: 0.875rem;
-    &:hover {
-      background-color: #b1ef1e;
-    }
-  }
-
-  .footerSecondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem 1.5rem;
-    font-weight: 500;
-    border-radius: 9999px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: 1px solid #444;
-    color: white;
-    font-size: 0.875rem;
-    &:hover {
-      border-color: #c1ff2e;
-    }
-  }
-
-  .footerBottom {
+  .formGroup {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid #333;
-    font-size: 0.75rem;
-    color: #777;
-    @media (min-width: 768px) {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-    }
-  }
+    gap: 0.5rem;
 
-  .footerLinks {
-    display: flex;
-    gap: 1rem;
-    a {
-      color: #777;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      &:hover {
-        color: #c1ff2e;
+    label {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    input,
+    textarea {
+      padding: 0.75rem 1rem;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.2s ease;
+      background-color: white;
+
+      &:focus {
+        outline: none;
+        border-color: var(--green-color);
       }
     }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+  }
+}
+
+.submitButton {
+  background-color: var(--green-color);
+  color: var(--black-color);
+  border: none;
+  border-radius: 50px;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  margin-top: 1rem;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.successMessage {
+  text-align: center;
+  padding: 2rem 0;
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--black-color);
+  }
+
+  p {
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .topSection {
+    padding: 3rem 1.5rem 6rem;
+  }
+
+  .heading {
+    font-size: 3rem;
+  }
+
+  .bottomSection {
+    padding: 3rem 1.5rem 1.5rem;
+  }
+
+  .tagline {
+    font-size: 2rem;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .modalContent {
+    padding: 2rem 1.5rem;
   }
 }
