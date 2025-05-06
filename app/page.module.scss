@@ -557,7 +557,8 @@
   }
 }
 
-/* Footer */
+/////////////////////////////////////////////////////
+// FOOTER
 
 footer.footer {
   background-color: var(--green-color);
@@ -611,6 +612,7 @@ footer.footer {
     padding: 0 16px 40px;
 
     .bottomSection {
+      position: relative;
       background-color: var(--dark-background);
       border-radius: 40px;
       color: white;
@@ -678,6 +680,59 @@ footer.footer {
           }
         }
       }
+
+      .scrollTopWrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: var(--green-color);
+        border-bottom-left-radius: 16px;
+        height: 56px;
+        width: 64px;
+
+        .scrollTop {
+          position: absolute;
+          top: 0;
+          right: 8px;
+          background-color: white;
+          height: 48px;
+          width: 48px;
+          border-radius: 100vh;
+          cursor: pointer;
+          background-image: url('/arrow-top.svg');
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 28px 20px;
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          background: radial-gradient(
+            circle at bottom left,
+            transparent 16px,
+            var(--green-color) 0%
+          );
+          top: 0;
+          left: -16px;
+          height: 16px;
+          width: 16px;
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          background: radial-gradient(
+            circle at bottom left,
+            transparent 16px,
+            var(--green-color) 0%
+          );
+          bottom: -16px;
+          right: 0;
+          height: 16px;
+          width: 16px;
+        }
+      }
     }
   }
 
@@ -696,10 +751,6 @@ footer.footer {
     width: 100%;
     color: var(--green-color);
     font-size: 14px;
-
-    .copyright {
-      font-size: 0.9rem;
-    }
 
     .links {
       justify-self: center;

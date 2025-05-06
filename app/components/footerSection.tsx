@@ -69,6 +69,13 @@ export default function FooterSection() {
               </ul>
             </nav>
           </div>
+
+          <div
+            className={styles.scrollTopWrapper}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
+            <div className={styles.scrollTop}></div>
+          </div>
         </div>
       </div>
     </footer>

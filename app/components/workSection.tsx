@@ -137,9 +137,20 @@ export default function WorkSection() {
 
         {!showMore && (
           <div className={styles.buttonContainer}>
-            <button className={styles.seeMoreButton} onClick={handleSeeMore}>
+            <motion.button
+              className={styles.seeMoreButton}
+              onClick={handleSeeMore}
+              initial={{ opacity: 0, x: -50 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+              transition={{
+                duration: 0.5,
+                delay: 1.7,
+                type: 'spring',
+                bounce: 0.4,
+              }}
+            >
               See more project
-            </button>
+            </motion.button>
           </div>
         )}
       </div>
