@@ -3,7 +3,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import styles from '../page.module.scss';
-import HeroImageCarousel from './heroImageCarousel';
 import HeroImageCarouselNew from './heroImageCarouselNew';
 
 export default function HeroSection() {

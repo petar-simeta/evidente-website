@@ -561,7 +561,9 @@
 
 footer.footer {
   background-color: var(--green-color);
-  border-radius: 32px;
+  position: relative;
+  border-top-right-radius: 32px;
+  border-top-left-radius: 32px;
 
   .topSection {
     padding: 100px 0 120px;
@@ -652,6 +654,7 @@ footer.footer {
           border-radius: 36px;
           border: none;
           outline: none;
+          cursor: pointer;
 
           &:after {
             content: '';
@@ -677,277 +680,52 @@ footer.footer {
       }
     }
   }
-}
 
-.startProjectButton {
-  background-color: var(--green-color);
-  color: var(--black-color);
-  border: none;
-  border-radius: 50px;
-  padding: 0.75rem 1.5rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-
-  &:hover {
-    transform: translateY(-2px);
+  .clientLogos {
+    min-width: 300px;
   }
 
-  .arrow {
-    font-size: 1.2rem;
-  }
-}
-
-.clientLogos {
-  flex: 1;
-  min-width: 300px;
-
-  .logoGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1rem;
-
-    .logoItem {
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      height: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-      color: rgba(255, 255, 255, 0.7);
-    }
-  }
-}
-
-.footerLinks {
-  margin-top: auto;
-  padding-top: 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 4rem;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-
-  .copyright {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.6);
-  }
-
-  .links {
+  .footerLinks {
+    grid-column: span 2;
+    padding: 0 80px;
+    margin-top: 140px;
     display: flex;
-    gap: 1.5rem;
-
-    a {
-      color: rgba(255, 255, 255, 0.6);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.2s ease;
-
-      &:hover {
-        color: var(--green-color);
-      }
-    }
-  }
-}
-
-.modalOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 1rem;
-  animation: fadeIn 0.3s ease;
-}
-
-.modalContent {
-  background-color: var(--almost-white-color);
-  border-radius: 12px;
-  width: 100%;
-  max-width: 500px;
-  position: relative;
-  padding: 2.5rem;
-  color: var(--black-color);
-  animation: slideUp 0.4s ease;
-  max-height: 90vh;
-  overflow-y: auto;
-
-  .closeButton {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    color: var(--black-color);
-    cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 50%;
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    transition: background-color 0.2s ease;
+    gap: 20px;
+    width: 100%;
+    color: var(--green-color);
+    font-size: 14px;
 
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.05);
-    }
-  }
-}
-
-.modalHeader {
-  margin-bottom: 2rem;
-  text-align: center;
-
-  h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    color: rgba(0, 0, 0, 0.6);
-  }
-}
-
-.contactForm {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-
-  .formGroup {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-
-    label {
+    .copyright {
       font-size: 0.9rem;
-      font-weight: 500;
     }
 
-    input,
-    textarea {
-      padding: 0.75rem 1rem;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: border-color 0.2s ease;
-      background-color: white;
+    .links {
+      justify-self: center;
 
-      &:focus {
-        outline: none;
-        border-color: var(--green-color);
+      ul {
+        display: flex;
+        gap: 16px;
+        list-style: none;
+
+        a {
+          text-decoration: none;
+
+          background-image: linear-gradient(var(--green-color) 0 0);
+          background-position: 0 100%;
+          background-size: 0 2px;
+          background-repeat: no-repeat;
+          transition:
+            background-size 0.2s,
+            background-position 0s 0.2s;
+
+          &:hover {
+            background-position: 100% 100%;
+            background-size: 100% 2px;
+          }
+        }
       }
     }
-
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-  }
-}
-
-.submitButton {
-  background-color: var(--green-color);
-  color: var(--black-color);
-  border: none;
-  border-radius: 50px;
-  padding: 1rem;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-  margin-top: 1rem;
-
-  &:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  &:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-  }
-}
-
-.successMessage {
-  text-align: center;
-  padding: 2rem 0;
-
-  h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--black-color);
-  }
-
-  p {
-    color: rgba(0, 0, 0, 0.6);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@media (max-width: 768px) {
-  .topSection {
-    padding: 3rem 1.5rem 6rem;
-  }
-
-  .heading {
-    font-size: 3rem;
-  }
-
-  .bottomSection {
-    padding: 3rem 1.5rem 1.5rem;
-  }
-
-  .tagline {
-    font-size: 2rem;
-  }
-
-  .footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .modalContent {
-    padding: 2rem 1.5rem;
   }
 }

@@ -1,50 +1,11 @@
 'use client';
 
-import { useState } from 'react';
 import styles from '../page.module.scss';
-import ContactModal from './contactModal';
 import Image from 'next/image';
 import PartnerLogos from './partnerLogos';
+import Link from 'next/link';
 
 export default function FooterSection() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    // Here you would normally send the data to your API
-    console.log('Form submitted:', formData);
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-
-    // Reset form after 3 seconds and close modal
-    setTimeout(() => {
-      setFormData({ name: '', email: '', company: '', message: '' });
-      setIsSubmitted(false);
-      setIsModalOpen(false);
-    }, 3000);
-  };
-
   return (
     <footer className={styles.footer}>
       {/* Top Section */}
@@ -60,12 +21,7 @@ export default function FooterSection() {
             and let's see if we're the right fit!
           </p>
 
-          <button
-            className={styles.ctaButton}
-            onClick={() => setIsModalOpen(true)}
-          >
-            Start your project
-          </button>
+          <button className={styles.ctaButton}>Start your project</button>
         </div>
       </div>
 
@@ -88,12 +44,7 @@ export default function FooterSection() {
 
             <p className={styles.teamName}>Evidente team</p>
 
-            <button
-              className={styles.ctaButton}
-              onClick={() => setIsModalOpen(true)}
-            >
-              Start Your Project
-            </button>
+            <button className={styles.ctaButton}>Start Your Project</button>
           </div>
 
           <div className={styles.clientLogos}>
@@ -104,16 +55,22 @@ export default function FooterSection() {
             <div className={styles.copyright}>
               Copyright © {new Date().getFullYear()} Evidente
             </div>
-            <div className={styles.links}>
-              <a href='#'>Cookies</a>
-              <a href='#'>Privacy Policy</a>
-              <a href='#'>Terms of Service</a>
-            </div>
+            <nav className={styles.links}>
+              <ul>
+                <li>
+                  <Link href='/cookies'>Cookies</Link>
+                </li>
+                <li>
+                  <Link href='/privacy-policy'>Privacy Policy</Link>
+                </li>
+                <li>
+                  <Link href='/terms-of-service'>Terms of Service</Link>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
-
-      {isModalOpen && <ContactModal />}
     </footer>
   );
 }

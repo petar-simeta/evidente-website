@@ -12,24 +12,6 @@ import WorkSection from './components/workSection';
 import FooterSection from './components/footerSection';
 
 export default function Home() {
-  // Featured work projects
-  const projects = [
-    { title: 'BeautifyMe Shop', category: 'E-commerce' },
-    { title: 'FitTrack', category: 'Health & Fitness' },
-    { title: 'Dazzler', category: 'Entertainment' },
-    { title: 'Auto 15 volt', category: 'Automotive' },
-    { title: 'TechSavvy', category: 'Technology' },
-  ];
-
-  // Client logos
-  const clients = [
-    '/placeholder.svg?height=50&width=120',
-    '/placeholder.svg?height=50&width=120',
-    '/placeholder.svg?height=50&width=120',
-    '/placeholder.svg?height=50&width=120',
-    '/placeholder.svg?height=50&width=120',
-  ];
-
   return (
     <PreloaderWrapper>
       <div>
