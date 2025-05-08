@@ -1,12 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import styles from '../page.module.scss';
 
 export default function HeroImageCarouselNew() {
-  // Create an array of 7 images with their corresponding alt text
+  // Create an array of 8 images with their corresponding alt text
   const heroImages = [
     { src: '/image1.jpg', alt: 'Image 1' },
     { src: '/image2.jpg', alt: 'Image 2' },
@@ -19,7 +18,12 @@ export default function HeroImageCarouselNew() {
   ];
 
   return (
-    <div className={styles.carousel}>
+    <motion.div
+      className={styles.carousel}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 3 }}
+    >
       <div className={styles.carouselWrap}>
         {heroImages.map((image, index) => {
           return (
@@ -31,6 +35,7 @@ export default function HeroImageCarouselNew() {
                     alt={image.alt}
                     width={800}
                     height={800}
+                    priority
                   />
                 </div>
               </div>
@@ -38,6 +43,6 @@ export default function HeroImageCarouselNew() {
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 }
