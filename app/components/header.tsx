@@ -12,13 +12,19 @@ export default function Header() {
   const [initialWidth, setInitialWidth] = useState<number>(0);
   const [headerBg, setHeaderBg] = useState<string>('rgba(245, 245, 245, 0)');
   const [wrapperPadding, setWrapperPadding] = useState<string>('0 0');
+  const [ratioToScroll, setRatioToScroll] = useState<number>(0);
 
   // Function to handle scroll effects
   const handleScroll = () => {
     const scrollPos = window.pageYOffset;
 
-    // For color and padding (0-400)
-    const colorScrollRatio = Math.min(Math.max(scrollPos, 0), 400) / 400;
+    // For color and padding (0-400), but max opacity 0.75
+    const rawRatio = Math.min(Math.max(scrollPos, 0), 400) / 400;
+    const colorScrollRatio = Math.min(rawRatio, 0.5);
+
+    // Basic ratio (200-600)
+    const basicRatio =
+      scrollPos <= 200 ? 0 : Math.min(Math.max(scrollPos - 200, 0), 400) / 400;
 
     // For width (0-1000)
     const widthScrollRatio = Math.min(Math.max(scrollPos, 0), 1000) / 1000;
@@ -32,34 +38,34 @@ export default function Header() {
     setHeaderBg(bgColor);
 
     // Calculate padding based on color scroll ratio
-    const padding = `${20 * colorScrollRatio}px ${20 * colorScrollRatio}px`;
+    const padding = `${20 * rawRatio}px ${20 * rawRatio}px`;
     setWrapperPadding(padding);
+    setRatioToScroll(basicRatio);
   };
 
   useEffect(() => {
-    // Update container dimensions on mount and resize
     const updateDimensions = () => {
       const container = document.querySelector('.container');
       if (!container) return;
-      const width = container.clientWidth;
-      setInitialWidth(width);
-      setWrapperWidth(width);
+
+      const rawWidth = container.clientWidth;
+      // when ≤1719 subtract 40px, otherwise keep full width
+      const adjustedWidth = rawWidth <= 1719 ? rawWidth - 40 : rawWidth;
+
+      setInitialWidth(adjustedWidth);
+      setWrapperWidth(adjustedWidth);
     };
 
-    // Initialize dimensions
+    // first set dimensions and scroll effect
     updateDimensions();
-
-    // Check initial scroll position
     handleScroll();
 
-    // Set up event listeners
-    window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', updateDimensions);
+    window.addEventListener('scroll', handleScroll);
 
-    // Cleanup event listeners
     return () => {
-      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', updateDimensions);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [initialWidth]);
 
@@ -78,11 +84,14 @@ export default function Header() {
       <div className='container'>
         <div
           className={styles.wrapper}
-          style={{
-            width: `${wrapperWidth}px`,
-            backgroundColor: headerBg,
-            padding: wrapperPadding,
-          }}
+          style={
+            {
+              width: `${wrapperWidth}px`,
+              backgroundColor: headerBg,
+              padding: wrapperPadding,
+              ['--scroll-ratio' as string]: ratioToScroll,
+            } as React.CSSProperties
+          }
         >
           <div className={styles.logo}>
             <Image
