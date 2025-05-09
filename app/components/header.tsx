@@ -93,7 +93,7 @@ export default function Header() {
             } as React.CSSProperties
           }
         >
-          <div className={styles.logo}>
+          <Link href='/'>
             <Image
               src='/evidente-logo.svg'
               alt='Evidente Logo'
@@ -101,20 +101,52 @@ export default function Header() {
               height={20}
               priority
             />
-          </div>
+          </Link>
           <nav className={styles.navigation}>
             <ul>
               <li>
-                <Link href='#about'>About</Link>
+                <span
+                  onClick={() =>
+                    document
+                      .getElementById('about')
+                      ?.scrollIntoView({ behavior: 'smooth' })
+                  }
+                >
+                  About
+                </span>
               </li>
               <li>
-                <Link href='#work'>Work</Link>
+                <span
+                  onClick={() =>
+                    document
+                      .getElementById('work')
+                      ?.scrollIntoView({ behavior: 'smooth' })
+                  }
+                >
+                  Work
+                </span>
               </li>
               <li>
-                <Link href='#services'>Services</Link>
+                <span
+                  onClick={() =>
+                    document
+                      .getElementById('services')
+                      ?.scrollIntoView({ behavior: 'smooth' })
+                  }
+                >
+                  Services
+                </span>
               </li>
               <li>
-                <Link href='#contact'>Contact</Link>
+                <span
+                  onClick={() =>
+                    document
+                      .getElementById('contact')
+                      ?.scrollIntoView({ behavior: 'smooth' })
+                  }
+                >
+                  Contact
+                </span>
               </li>
             </ul>
           </nav>
