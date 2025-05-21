@@ -25,6 +25,10 @@ body {
   margin: 0;
 }
 
+::selection {
+  background: rgba(209, 246, 19, 0.5);
+}
+
 a {
   color: inherit;
   text-decoration: none;

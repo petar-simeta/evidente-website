@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default function FooterSection() {
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} id='footer'>
       {/* Top Section */}
       <div className={styles.topSection}>
         <div className='container'>

@@ -141,7 +141,7 @@ export default function Header() {
                 <span
                   onClick={() =>
                     document
-                      .getElementById('contact')
+                      .getElementById('footer')
                       ?.scrollIntoView({ behavior: 'smooth' })
                   }
                 >

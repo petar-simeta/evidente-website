@@ -7,14 +7,14 @@ import styles from '../page.module.scss';
 export default function HeroImageCarouselNew() {
   // Create an array of 8 images with their corresponding alt text
   const heroImages = [
-    { src: '/image1.jpg', alt: 'Image 1' },
-    { src: '/image2.jpg', alt: 'Image 2' },
-    { src: '/image3.jpg', alt: 'Image 3' },
-    { src: '/image4.jpg', alt: 'Image 4' },
-    { src: '/image1.jpg', alt: 'Image 5' },
-    { src: '/image2.jpg', alt: 'Image 6' },
-    { src: '/image3.jpg', alt: 'Image 7' },
-    { src: '/image4.jpg', alt: 'Image 8' },
+    { src: '/hero-bags.jpeg', alt: 'Shopping bags for E-commerce' },
+    { src: '/hero-call.jpeg', alt: 'Bussines call with clients' },
+    { src: '/hero-code.jpeg', alt: 'Software website code' },
+    { src: '/hero-girl.jpeg', alt: 'Girl in meetings' },
+    { src: '/hero-hands.jpeg', alt: 'Hands working together' },
+    { src: '/hero-handshake.jpeg', alt: 'Partner handshake' },
+    { src: '/hero-man.jpeg', alt: 'Man in meetings' },
+    { src: '/hero-robot.jpeg', alt: 'AI Robot' },
   ];
 
   return (
