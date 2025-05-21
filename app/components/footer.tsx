@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 
 export default function Footer() {
   return (
-    <div className={styles.bottomSectionWrapper}>
+    <div className={styles.footerFooter}>
       <div className={styles.bottomSection}>
         <div className={styles.leftContent}>
           <div className={styles.logo}>
