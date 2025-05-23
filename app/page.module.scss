@@ -863,3 +863,113 @@ footer.footer {
     }
   }
 }
+
+/////////
+
+.headerMobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 1000;
+
+  .inner {
+    max-width: 1200px; /* po potrebi mijenjaj */
+    margin: 0 auto;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: #000;
+      border-radius: 1px;
+      transition: all 0.3s ease;
+    }
+  }
+
+  .modalOverlay {
+    position: fixed;
+    inset: 0; /* top:0; right:0; bottom:0; left:0 */
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+  }
+
+  .modalNav {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+
+      li + li {
+        margin-top: 24px;
+      }
+
+      button {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        padding: 8px 16px;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: #ddd;
+        }
+      }
+    }
+  }
+
+  .closeButton {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}
