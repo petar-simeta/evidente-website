@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import styles from '../page.module.scss';
-import HeroImageCarouselNew from './heroImageCarouselNew';
+import HeroImageCarousel from './heroImageCarousel';
 
 export default function HeroSection() {
   const ref = useRef(null);
@@ -37,7 +37,7 @@ export default function HeroSection() {
           ))}
         </span>
       </h1>
-      <HeroImageCarouselNew />
+      <HeroImageCarousel />
     </section>
   );
 }
