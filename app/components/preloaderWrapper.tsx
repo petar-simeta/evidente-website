@@ -1,5 +1,6 @@
 import { useState, useEffect, ReactNode } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import Cookies from 'js-cookie';
 
 interface PreloaderWrapperProps {
   children: ReactNode;
@@ -9,9 +10,22 @@ export default function PreloaderWrapper({ children }: PreloaderWrapperProps) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Check if user has already seen the preloader
+    const hasSeen = Cookies.get('seenPreloader');
+    if (hasSeen) {
+      setLoading(false);
+      return;
+    }
+
+    // Set a cookie to expire in 10 minutes
+    const expireDate = new Date(Date.now() + 10 * 60 * 1000);
+    Cookies.set('seenPreloader', 'true', { expires: expireDate });
+
+    // Show preloader for a fixed duration (3 seconds)
     const timer = setTimeout(() => {
       setLoading(false);
     }, 3000);
+
     return () => clearTimeout(timer);
   }, []);
 
