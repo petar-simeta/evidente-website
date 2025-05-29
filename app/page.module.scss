@@ -390,7 +390,8 @@
 
     p {
       font-size: 15px;
-      line-height: 1.35;
+      line-height: 1.4;
+      font-weight: 300;
     }
   }
 
@@ -415,6 +416,7 @@
     color: var(--almost-white-color);
     grid-column: 1 / 2;
     grid-row: 2 / 3;
+    position: relative;
 
     display: flex;
     flex-direction: column;
@@ -423,6 +425,20 @@
     h3 {
       color: var(--green-color);
       font-size: 44px;
+      line-height: 1;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 32px;
+      right: 32px;
+      width: 40px;
+      height: 32px;
+      background-image: url('/quotes-icon.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
     }
   }
 
@@ -431,6 +447,7 @@
     color: var(--black-color);
     grid-column: 2 / 3;
     grid-row: 2 / 3;
+    position: relative;
 
     display: flex;
     flex-direction: column;
@@ -448,6 +465,21 @@
       padding: 18px 44px;
       border-radius: 100vh;
     }
+
+    .scrollToWork {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: white;
+      height: 48px;
+      width: 48px;
+      border-radius: 16px;
+      cursor: pointer;
+      background-image: url('/arrow-down-purple.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 28px 28px;
+    }
   }
 
   .responsiveCard {
@@ -455,10 +487,17 @@
     color: var(--almost-white-color);
     grid-column: 3 / 4;
     grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 32px 0;
 
     h3 {
       font-size: 36px;
       margin-bottom: 20px;
+    }
+
+    .deviceImage {
+      margin-top: auto;
     }
   }
 }
@@ -822,12 +861,12 @@ footer.footer {
         background-color: white;
         height: 48px;
         width: 48px;
-        border-radius: 100vh;
+        border-radius: 16px;
         cursor: pointer;
-        background-image: url('/arrow-top.svg');
+        background-image: url('/arrow-up-purple.svg');
         background-repeat: no-repeat;
         background-position: center;
-        background-size: 28px 20px;
+        background-size: 28px 28px;
       }
 
       &:after {
