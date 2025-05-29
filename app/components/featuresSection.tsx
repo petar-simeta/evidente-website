@@ -56,7 +56,7 @@ export default function TechToolbox() {
     '#C6FB50',
   ];
   const textColorsBackward = [
-    '#F5F5F5',
+    '#232323',
     '#232323',
     '#F5F5F5',
     '#232323',
