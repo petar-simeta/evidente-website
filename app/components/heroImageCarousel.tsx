@@ -14,8 +14,8 @@ export default function HeroImageCarousel() {
     { src: '/hero-girl.jpeg', alt: 'Girl in meetings' },
     { src: '/hero-hands.jpeg', alt: 'Hands working together' },
     { src: '/hero-handshake.jpeg', alt: 'Partner handshake' },
-    { src: '/hero-man.jpeg', alt: 'Man in meetings' },
-    { src: '/hero-robot.jpeg', alt: 'AI robot illustration' },
+    { src: '/hero-meeting.jpeg', alt: 'Man in meetings' },
+    { src: '/hero-flowers.jpeg', alt: 'Flowers in an office' },
   ];
 
   useLayoutEffect(() => {
@@ -24,21 +24,19 @@ export default function HeroImageCarousel() {
       `.${styles.imageInner}`
     );
     const total = inners.length;
-    const duration = 40;
+    const duration = 100;
 
-    // Fade-in
     gsap.fromTo(
       container.current,
       { opacity: 0 },
       { opacity: 1, duration: 3, ease: 'power1.out' }
     );
 
-    // Postavi početne kutove i pokreni beskonačnu rotaciju
     inners.forEach((el, i) => {
       const startAngle = (360 / total) * i;
       gsap.set(el, {
         rotation: startAngle,
-        transformOrigin: '50% 200%',
+        transformOrigin: '50% 480%',
         willChange: 'transform',
       });
       gsap.to(el, {
@@ -53,15 +51,23 @@ export default function HeroImageCarousel() {
   return (
     <div ref={container} className={styles.carousel}>
       <div className={styles.carouselWrap}>
-        {heroImages.map(({ src, alt }, idx) => (
-          <div key={idx} className={styles.image}>
-            <div className={styles.imageInner}>
-              <div className={styles.imageInnerInner}>
-                <Image src={src} alt={alt} width={800} height={800} priority />
+        {[...heroImages, ...heroImages, ...heroImages].map(
+          ({ src, alt }, idx) => (
+            <div key={idx} className={styles.image}>
+              <div className={styles.imageInner}>
+                <div className={styles.imageInnerInner}>
+                  <Image
+                    src={src}
+                    alt={alt}
+                    width={800}
+                    height={800}
+                    priority
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          )
+        )}
       </div>
     </div>
   );

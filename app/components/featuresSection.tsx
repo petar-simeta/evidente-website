@@ -199,7 +199,7 @@ export default function TechToolbox() {
             </p>
             <div className={styles.deviceImage}>
               <Image
-                src='/lsptop-and-phone.png'
+                src='/laptop-and-phone.png'
                 alt='Responsive design'
                 width={600}
                 height={900}

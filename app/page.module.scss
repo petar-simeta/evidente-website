@@ -266,11 +266,11 @@
 
   .imageInner {
     position: relative;
-    width: 30vw;
+    width: 25vw;
     height: 25vw;
     border-radius: 50px;
     overflow: hidden;
-    transform-origin: 50% 200%;
+    transform-origin: 50% 480%;
     will-change: transform;
   }
 
@@ -290,7 +290,7 @@
       height: 60vw;
     }
     .imageInner {
-      width: 80vw;
+      width: 60vw;
       height: 60vw;
       transform-origin: 50% 150%;
     }
