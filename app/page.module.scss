@@ -219,6 +219,7 @@
   display: flex;
   flex-direction: column;
   padding-top: 180px;
+  overflow: hidden;
 
   @media (max-width: 900px) {
     padding-top: 120px;
@@ -299,6 +300,10 @@
 
 /////////////////////////////////////////////////////
 // ABOUT SECTION
+
+.aboutSection {
+  overflow: hidden;
+}
 
 .aboutWrapper {
   background-color: var(--green-color);
@@ -551,6 +556,132 @@
     .deviceImage {
       margin-top: auto;
     }
+  }
+}
+
+/////////////////////////////////////////////////////
+// FEATURES SECTION MOBILE
+
+.featuresSectionMobile {
+  width: 100vw;
+  position: relative;
+  background-color: var(--green-color);
+
+  .sliderWrapper {
+    padding: 60px 20px 120px;
+    overflow: hidden;
+    border-top-left-radius: 36px;
+    border-top-right-radius: 36px;
+    background-color: var(--almost-white-color);
+  }
+
+  .featureCard {
+    height: 600px;
+    border-radius: 32px;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  .techToolbox {
+    background-color: #170566;
+    color: var(--almost-white-color);
+
+    .content {
+      h3 {
+        font-size: 36px;
+        line-height: 1.4;
+        margin-bottom: 24px;
+        font-weight: 400;
+      }
+
+      p {
+        font-size: 15px;
+        line-height: 1.4;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .experienceCard {
+    background-color: var(--green-color);
+    color: var(--black-color);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 100px;
+
+    h3 {
+      font-size: 36px;
+      line-height: 1.4;
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.4;
+      font-weight: 400;
+      margin: 0 0 12px;
+    }
+
+    .biggerNumberTitle {
+      font-size: 64px;
+      font-weight: 400;
+      line-height: 1.1;
+      margin: 24px 0 24px;
+    }
+
+    a {
+      background-color: var(--black-color);
+      color: var(--almost-white-color);
+      padding: 14px 32px;
+      border-radius: 100vh;
+      font-size: 14px;
+      font-weight: 400;
+      margin-top: 12px;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 30px;
+      height: 20px;
+      background-image: url('/quotes-icon-black.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  }
+
+  .responsiveCard {
+    background-color: var(--black-color);
+    color: var(--almost-white-color);
+    display: flex;
+    flex-direction: column;
+    padding: 32px 32px 0;
+
+    h3 {
+      font-size: 36px;
+      line-height: 1.4;
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.4;
+      font-weight: 400;
+      margin: 0 0 12px;
+    }
+
+    .deviceImage {
+      margin-top: auto;
+    }
+
+    /* TODO: treba sredit responsive još, pokvareno je na nekim ekranima */
   }
 }
 

@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function TechToolbox() {
+export default function FeaturesSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const forwardRef = useRef<HTMLDivElement>(null);
   const backwardRef = useRef<HTMLDivElement>(null);

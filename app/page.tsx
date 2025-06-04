@@ -1,9 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import styles from './page.module.scss';
 import HeroSection from './components/heroSection';
 import PreloaderWrapper from './components/preloaderWrapper';
 import Header from './components/header';
@@ -13,13 +10,16 @@ import WorkSection from './components/workSection';
 import FooterSection from './components/footerSection';
 import HeaderMobile from './components/headerMobile';
 import FeaturesSection from './components/featuresSection';
+import FeaturesSectionMobile from './components/featuresSectionMobile';
 
 export default function Home() {
-  const [isDesktop, setIsDesktop] = useState<boolean>(false);
+  const [isDesktop, setIsDesktop] = useState<boolean>(false); // 1100
+  const [isLargerDesktop, setIsLargerDesktop] = useState<boolean>(false); // 1300
 
   useEffect(() => {
     const handleResize = () => {
       setIsDesktop(window.innerWidth > 1100);
+      setIsLargerDesktop(window.innerWidth > 1300);
     };
 
     handleResize();
@@ -37,7 +37,7 @@ export default function Home() {
 
           <AboutSection />
 
-          <FeaturesSection />
+          {isLargerDesktop ? <FeaturesSection /> : <FeaturesSectionMobile />}
 
           <WorkSection />
 
