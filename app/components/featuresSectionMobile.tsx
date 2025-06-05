@@ -141,10 +141,10 @@ export default function FeaturesSectionMobile() {
             </div>
 
             <div className={styles.content}>
-              <h3>Our Tech Toolbox</h3>
+              <h3>Smart Tech Choices</h3>
               <p>
-                Every technology has its own purpose. We carefully select the
-                right tools to create exceptional digital experiences.
+                Every tool we use is chosen strategically, aligning perfectly
+                with project goals to deliver outstanding digital experiences.
               </p>
             </div>
           </div>
@@ -172,9 +172,8 @@ export default function FeaturesSectionMobile() {
           <div className={`${styles.featureCard} ${styles.responsiveCard}`}>
             <h3>Responsive for every device and browser!</h3>
             <p>
-              We ensure your website is fully responsive and works perfectly on
-              all devices and browsers. From mobile phones to desktops, your
-              users will have a seamless experience.
+              Fully responsive and reliably optimized—your users will enjoy a
+              flawless browsing experience across all devices and browsers.
             </p>
             <div className={styles.deviceImage}>
               <Image

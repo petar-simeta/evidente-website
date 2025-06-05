@@ -9,23 +9,24 @@ export default function ServicesSection() {
   const isInView = useInView(ref, { once: true });
   const [activeService, setActiveService] = useState(0);
 
-  // Service content based on active selection
-  const serviceContent = [
-    'Our project management team ensures smooth execution from start to finish. We use agile methodologies to adapt quickly to changing requirements and deliver results on time and within budget.',
-    'Our UI/UX designers create intuitive, beautiful interfaces that delight users. We focus on user research, wireframing, and prototyping to ensure the best possible user experience.',
-    'Our development team builds robust, scalable software solutions using the latest technologies. We follow best practices for clean code, testing, and documentation.',
-    'Quality assurance is built into our process. Our testing team ensures your software is bug-free and performs optimally across all platforms and devices.',
-    'We handle the entire launch process, from final testing to deployment. Our team ensures a smooth transition to production with minimal downtime.',
-    'Our support team is available to help with any issues that arise after launch. We provide maintenance, updates, and improvements to keep your software running smoothly.',
+  const services = [
+    'Concept Discovery',
+    'Brainstorming Workshop',
+    'Visual Design',
+    'Solution Development',
+    'Quality Assurance',
+    'Strategic Launch',
+    'Ongoing Support',
   ];
 
-  const services = [
-    'Project Management',
-    'User Interface Design',
-    'Software development',
-    'Software testing',
-    'Testing and project launch',
-    'Support and maintenance',
+  const serviceContent = [
+    'Every great project starts with a clear idea. We listen closely and ask the right questions. Together, we lay the groundwork for turning your vision into something tangible.',
+    'In this phase, collaboration drives innovation. We explore various approaches, refine each concept, and map out a solid plan to transform your idea into an executable strategy.',
+    'Here, we translate concepts into engaging visuals and intuitive interfaces. Our goal is to create designs that not only look exceptional but also deliver a seamless experience for your users.',
+    'This is where designs come to life. Leveraging modern technologies and best practices, we build robust, scalable solutions tailored precisely to your requirements.',
+    'Quality is our top priority. Through thorough testing—functional, performance, and usability—we ensure your solution is reliable, bug-free, and ready to impress end users.',
+    'Launching is more than just going live—it’s setting the stage for future growth. We coordinate deployments carefully, monitor initial performance, and make sure everything runs smoothly from day one.',
+    'Our partnership doesn’t end at launch. We provide ongoing support, updates, and maintenance, ensuring your solution continues to perform optimally and adapt to evolving needs.',
   ];
 
   return (
