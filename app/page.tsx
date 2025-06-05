@@ -11,13 +11,16 @@ import FooterSection from './components/footerSection';
 import HeaderMobile from './components/headerMobile';
 import FeaturesSection from './components/featuresSection';
 import FeaturesSectionMobile from './components/featuresSectionMobile';
+import ServicesSectionMobile from './components/servicesSectionMobile';
 
 export default function Home() {
   const [isDesktop, setIsDesktop] = useState<boolean>(false); // 1100
   const [isLargerDesktop, setIsLargerDesktop] = useState<boolean>(false); // 1300
+  const [isSmallerDesktop, setIsSmallerDesktop] = useState<boolean>(false); // 800
 
   useEffect(() => {
     const handleResize = () => {
+      setIsSmallerDesktop(window.innerWidth > 800);
       setIsDesktop(window.innerWidth > 1100);
       setIsLargerDesktop(window.innerWidth > 1300);
     };
@@ -41,7 +44,7 @@ export default function Home() {
 
           <WorkSection />
 
-          <ServicesSection />
+          {isSmallerDesktop ? <ServicesSection /> : <ServicesSectionMobile />}
         </main>
 
         <FooterSection />

@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import { motion, useInView } from 'motion/react';
 import styles from '../page.module.scss';
 
-export default function ServicesSection() {
+export default function ServicesSectionMobile() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const [activeService, setActiveService] = useState(0);
@@ -71,49 +71,52 @@ export default function ServicesSection() {
             </span>
           </h2>
 
-          <div className={styles.servicesContent}>
-            <div className={styles.serviceButtons}>
-              {services.map((service, index) => (
-                <motion.button
-                  key={index}
+          <motion.div
+            className={styles.servicesContentMobile}
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 2 }}
+          >
+            {services.map((service, index) => (
+              <div key={index} className={styles.serviceItem}>
+                <button
                   className={`${styles.serviceButton} ${activeService === index ? styles.active : ''}`}
                   onClick={() => setActiveService(index)}
-                  initial={{ opacity: 0, x: '-50%' }}
-                  animate={
-                    isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: '-50%' }
-                  }
-                  transition={{
-                    duration: 0.3,
-                    delay: 1.5 + index * 0.2,
-                    type: 'spring',
-                    bounce: 0.4,
-                  }}
                 >
                   <span>{service}</span>
-                </motion.button>
-              ))}
-            </div>
-
-            <motion.div
-              className={styles.serviceDescription}
-              initial={{ opacity: 0, y: -20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-              transition={{ delay: 1.5, duration: 0.5 }}
-            >
-              <motion.p
-                key={activeService}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.3,
-                  type: 'spring',
-                  bounce: 0.4,
-                }}
-              >
-                {serviceContent[activeService]}
-              </motion.p>
-            </motion.div>
-          </div>
+                </button>
+                {activeService === index && (
+                  <motion.div
+                    className={styles.serviceDescription}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={
+                      isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }
+                    }
+                    transition={{
+                      duration: 0.3,
+                      type: 'spring',
+                      bounce: 0.4,
+                    }}
+                  >
+                    <motion.p
+                      key={index}
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={
+                        isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }
+                      }
+                      transition={{
+                        duration: 0.3,
+                        type: 'spring',
+                        bounce: 0.4,
+                      }}
+                    >
+                      {serviceContent[index]}
+                    </motion.p>
+                  </motion.div>
+                )}
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

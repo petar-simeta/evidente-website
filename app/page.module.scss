@@ -882,10 +882,24 @@
   min-height: 100vh;
   padding: 120px 0;
 
+  @media (max-width: 800px) {
+    padding: 80px 0 100px;
+  }
+
   .servicesInnerWrapper {
     display: flex;
     flex-direction: column;
     gap: 120px;
+
+    @media (max-width: 1200px) {
+      gap: 80px;
+    }
+    @media (max-width: 1000px) {
+      gap: 60px;
+    }
+    @media (max-width: 800px) {
+      gap: 40px;
+    }
 
     h2 {
       font-size: 80px;
@@ -897,12 +911,36 @@
       span.yellowText {
         color: var(--green-color);
       }
+
+      @media (max-width: 1400px) {
+        font-size: 72px;
+      }
+      @media (max-width: 1230px) {
+        font-size: 64px;
+      }
+      @media (max-width: 800px) {
+        font-size: 48px;
+        text-align: center;
+      }
+      @media (max-width: 800px) {
+        font-size: 36px;
+      }
     }
 
     .servicesContent {
       display: grid;
       grid-template-columns: 3fr 2fr;
       gap: 100px;
+
+      @media (max-width: 1400px) {
+        gap: 80px;
+      }
+      @media (max-width: 1200px) {
+        gap: 60px;
+      }
+      @media (max-width: 1000px) {
+        gap: 40px;
+      }
     }
 
     .serviceButtons {
@@ -928,6 +966,17 @@
       cursor: pointer;
       transition: all 0.2s ease;
 
+      @media (max-width: 1200px) {
+        font-size: 24px;
+      }
+      @media (max-width: 950px) {
+        font-size: 20px;
+      }
+      @media (max-width: 800px) {
+        padding: 16px 20px;
+        font-size: 16px;
+      }
+
       &:after {
         content: '';
         position: absolute;
@@ -942,6 +991,12 @@
         -webkit-mask-size: contain;
         mask-size: contain;
         transition: all 0.2s ease;
+
+        @media (max-width: 800px) {
+          right: 20px;
+          width: 16px;
+          height: 16px;
+        }
       }
 
       &:hover,
@@ -963,7 +1018,24 @@
         line-height: 1.6;
         font-weight: 300;
         color: var(--black-color);
+
+        @media (max-width: 800px) {
+          padding: 10px 16px 16px;
+          font-size: 18px;
+          line-height: 1.4;
+        }
       }
+    }
+
+    .servicesContentMobile {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .serviceItem {
+      display: flex;
+      flex-direction: column;
     }
   }
 }
