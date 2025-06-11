@@ -5,7 +5,6 @@ import { motion, useInView } from 'motion/react';
 import Image from 'next/image';
 import styles from '../page.module.scss';
 
-// Define the project type
 interface Project {
   id: number;
   title: string;
@@ -18,65 +17,60 @@ export default function WorkSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  // Initial projects to display
   const initialProjects: Project[] = [
     {
       id: 1,
       title: 'Barcaffe Shop',
       year: '2024',
-      image: '/placeholder.jpg',
+      image: '/barcaffe.jpeg',
       tags: ['Webflow Dev', 'Custom Code'],
     },
     {
       id: 2,
-      title: 'Farmacia',
+      title: 'OTP banka',
       year: '2024',
-      image: '/placeholder.jpg',
+      image: '/otp.jpeg',
       tags: ['Web Design', 'Wireframing'],
     },
     {
       id: 3,
       title: 'Končar',
       year: '2024',
-      image: '/placeholder.jpg',
+      image: '/koncar.jpeg',
       tags: ['Web Design', 'Wireframing'],
     },
   ];
 
-  // Additional projects to show when "See more" is clicked
   const additionalProjects: Project[] = [
     {
       id: 4,
-      title: 'Digital Agency',
+      title: 'Auto Hrvatska',
       year: '2024',
-      image: '/placeholder.jpg',
+      image: '/autohrvatska.jpeg',
       tags: ['UI Design', 'Development'],
     },
     {
       id: 5,
-      title: 'Tech Solutions',
+      title: 'Hrvatski Sabor',
       year: '2024',
-      image: '/placeholder.jpg',
+      image: '/sabor.jpeg',
       tags: ['Branding', 'Web Design'],
     },
     {
       id: 6,
-      title: 'Creative Studio',
+      title: 'Farmacia',
       year: '2024',
-      image: '/placeholder.jpg',
+      image: '/farmacia.jpeg',
       tags: ['UX Research', 'Development'],
     },
   ];
 
-  // State to track if additional projects are shown
   const [showMore, setShowMore] = useState(false);
 
-  // All projects to display
   const displayedProjects = showMore
     ? [...initialProjects, ...additionalProjects]
     : initialProjects;
 
-  // Function to handle "See more" button click
   const handleSeeMore = () => {
     setShowMore(true);
   };
@@ -116,11 +110,10 @@ export default function WorkSection() {
               <div className={styles.imageContainer}>
                 <span className={styles.yearTag}>{project.year}</span>
                 <Image
-                  src={project.image || '/placeholder.svg'}
+                  src={project.image}
                   alt={project.title}
                   className={styles.projectImage}
-                  width={500}
-                  height={600}
+                  fill
                 />
                 <div className={styles.tagContainer}>
                   {project.tags.map((tag, index) => (
