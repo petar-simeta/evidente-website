@@ -13,12 +13,16 @@ export default function FooterSection() {
           <h2>Let's Work Together</h2>
 
           <p className={styles.subtext}>
-            Fill out our form, schedule a call, or reach out via email,
-            <br />
-            and let's see if we're the right fit!
+            Reach out through email—let’s connect and discover if we’re a right
+            match!
           </p>
 
-          <button className={styles.ctaButton}>Start your project</button>
+          <a
+            href='mailto:email@example.com?subject=I%27m%20interested%20in%20working%20with%20you&body=Dear%20Evidente%2C%20my%20name%20is'
+            className={styles.ctaButton}
+          >
+            Start the Conversation
+          </a>
         </div>
       </div>
 

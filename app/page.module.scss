@@ -1126,9 +1126,14 @@ footer.footer {
         }
       }
 
-      .teamName {
-        font-size: 20px;
-        margin-bottom: 50px;
+      .firmInfo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        color: var(--green-color);
+        font-size: 14px;
+        line-height: 1.4;
+        font-weight: 400;
+        margin-bottom: 64px;
       }
 
       .ctaButton {
@@ -1147,23 +1152,29 @@ footer.footer {
         &:after {
           content: '';
           position: absolute;
-          width: 18px;
-          height: 12px;
-          background-image: url('/arrow-right.svg');
+          width: 24px;
+          height: 24px;
+          background-image: url('/copy.svg');
           background-repeat: no-repeat;
           background-position: center;
           background-size: contain;
-          right: 25px;
+          right: 20px;
           top: 50%;
           transform: translateY(-50%);
           transition: transform 0.3s ease;
         }
+      }
 
-        &:hover {
-          &:after {
-            transform: translate(10px, -50%);
-          }
-        }
+      .copyTooltip {
+        font-size: 13px;
+        line-height: 1.4;
+        color: var(--almost-white-color);
+        position: absolute;
+        bottom: -32px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        text-align: center;
       }
     }
 

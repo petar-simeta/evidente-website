@@ -5,8 +5,24 @@ import Image from 'next/image';
 import PartnerLogos from './partnerLogos';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import React, { useState, useEffect } from 'react';
 
 export default function Footer() {
+  const [showCopiedTooltip, setShowCopiedTooltip] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('support@evidente.hr').then(() => {
+      setShowCopiedTooltip(true);
+    });
+  };
+
+  useEffect(() => {
+    if (showCopiedTooltip) {
+      const timer = setTimeout(() => setShowCopiedTooltip(false), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [showCopiedTooltip]);
+
   return (
     <div className={styles.footerFooter}>
       <div className={styles.bottomSection}>
@@ -25,8 +41,19 @@ export default function Footer() {
             <span>Get in touch.</span>
           </h4>
 
-          <p className={styles.teamName}>Evidente team</p>
-          <button className={styles.ctaButton}>Start Your Project</button>
+          <div className={styles.firmInfo}>
+            <span>Evidente d.o.o</span>
+            <span>Prečko 22</span>
+            <span>VAT: HR48530401743</span>
+            <span>Zagreb, Croatia</span>
+          </div>
+
+          <button className={styles.ctaButton} onClick={handleCopyEmail}>
+            support@evidente.hr
+            {showCopiedTooltip && (
+              <div className={styles.copyTooltip}>Copied to clipboard!</div>
+            )}
+          </button>
         </div>
 
         <div className={styles.clientLogos}>
