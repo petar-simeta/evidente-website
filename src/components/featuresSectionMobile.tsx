@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import styles from '../[locale]/page.module.scss';
+import styles from '../app/[locale]/page.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
 

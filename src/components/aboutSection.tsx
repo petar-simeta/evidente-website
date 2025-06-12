@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'motion/react';
-import styles from '../[locale]/page.module.scss';
+import styles from '../app/[locale]/page.module.scss';
 
 export default function AboutSection() {
   const headingRef = useRef<HTMLHeadingElement>(null);

@@ -1,6 +1,6 @@
 'use client';
 
-import styles from '../[locale]/page.module.scss';
+import styles from '../app/[locale]/page.module.scss';
 import Image from 'next/image';
 import PartnerLogos from './partnerLogos';
 import Link from 'next/link';

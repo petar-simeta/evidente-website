@@ -1,17 +1,17 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import HeroSection from '../components/heroSection';
-import PreloaderWrapper from '../components/preloaderWrapper';
-import Header from '../components/header';
-import AboutSection from '../components/aboutSection';
-import ServicesSection from '../components/servicesSection';
-import WorkSection from '../components/workSection';
-import FooterSection from '../components/footerSection';
-import HeaderMobile from '../components/headerMobile';
-import FeaturesSection from '../components/featuresSection';
-import FeaturesSectionMobile from '../components/featuresSectionMobile';
-import ServicesSectionMobile from '../components/servicesSectionMobile';
+import HeroSection from '../../components/heroSection';
+import PreloaderWrapper from '../../components/preloaderWrapper';
+import Header from '../../components/header';
+import AboutSection from '../../components/aboutSection';
+import ServicesSection from '../../components/servicesSection';
+import WorkSection from '../../components/workSection';
+import FooterSection from '../../components/footerSection';
+import HeaderMobile from '../../components/headerMobile';
+import FeaturesSection from '../../components/featuresSection';
+import FeaturesSectionMobile from '../../components/featuresSectionMobile';
+import ServicesSectionMobile from '../../components/servicesSectionMobile';
 
 export default function Home() {
   const [isDesktop, setIsDesktop] = useState<boolean>(false); // 1100

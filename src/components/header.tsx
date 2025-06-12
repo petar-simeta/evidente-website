@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from '../[locale]/page.module.scss';
+import styles from '../app/[locale]/page.module.scss';
 
 export default function Header() {
   // HEADER CODE (desktop)

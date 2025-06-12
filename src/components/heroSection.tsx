@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { useTranslations } from 'next-intl';
-import styles from '../[locale]/page.module.scss';
+import styles from '../app/[locale]/page.module.scss';
 import HeroImageCarousel from './heroImageCarousel';
 
 export default function HeroSection() {

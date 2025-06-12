@@ -1,6 +1,6 @@
 'use client';
 
-import styles from '../[locale]/page.module.scss';
+import styles from '../app/[locale]/page.module.scss';
 import Footer from './footer';
 
 export default function FooterSection() {
