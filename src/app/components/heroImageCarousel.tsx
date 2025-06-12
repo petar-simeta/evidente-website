@@ -3,7 +3,7 @@
 import { useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import Image from 'next/image';
-import styles from '../page.module.scss';
+import styles from '../[locale]/page.module.scss';
 
 export default function HeroImageCarousel() {
   const container = useRef<HTMLDivElement>(null);

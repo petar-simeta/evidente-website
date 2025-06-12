@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import styles from '../page.module.scss';
+import styles from '../[locale]/page.module.scss';
 
 export default function HeaderMobile() {
   const [isOpen, setIsOpen] = useState(false);

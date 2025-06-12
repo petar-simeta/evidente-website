@@ -2,7 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'motion/react';
-import styles from '../page.module.scss';
+import styles from '../[locale]/page.module.scss';
 
 export default function ServicesSectionMobile() {
   const ref = useRef(null);

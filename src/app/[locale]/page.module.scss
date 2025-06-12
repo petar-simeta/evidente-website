@@ -985,8 +985,8 @@
         width: 20px;
         height: 20px;
         background-color: var(--black-color);
-        -webkit-mask: url('../public/short-arrow.svg') no-repeat center;
-        mask: url('../public/short-arrow.svg') no-repeat center;
+        -webkit-mask: url('../../../public/short-arrow.svg') no-repeat center;
+        mask: url('../../../public/short-arrow.svg') no-repeat center;
         -webkit-mask-size: contain;
         mask-size: contain;
         transition: all 0.2s ease;
