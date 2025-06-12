@@ -1,8 +1,8 @@
 'use client';
 
 import styles from '../app/[locale]/page.module.scss';
-import Header from '../components/header';
-import Footer from '../components/footer';
+import Header from '../../../components/header';
+import Footer from '../../../components/footer';
 
 export default function Home() {
   return (
