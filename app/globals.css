@@ -91,6 +91,17 @@ dl {
   padding: 10px 0;
 }
 
+@media (max-width: 1200px) {
+  .blurred-logo-marquee {
+    height: 160px;
+  }
+}
+@media (max-width: 600px) {
+  .blurred-logo-marquee {
+    height: 140px;
+  }
+}
+
 .blurred-logo-marquee ul {
   display: flex;
   gap: 16px;
@@ -112,11 +123,18 @@ dl {
   aspect-ratio: 3 / 2;
   display: grid;
   place-items: center;
+  padding: 10px;
+}
+
+@media (max-width: 1200px) {
+  .blurred-logo-marquee li {
+    height: 140px;
+  }
 }
 
 @media (max-width: 600px) {
   .blurred-logo-marquee li {
-    height: 40px;
+    height: 120px;
   }
 }
 

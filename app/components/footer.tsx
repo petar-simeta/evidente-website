@@ -67,13 +67,7 @@ export default function Footer() {
           <nav className={styles.links}>
             <ul>
               <li>
-                <Link href='/cookies'>Cookies</Link>
-              </li>
-              <li>
-                <Link href='/privacy-policy'>Privacy Policy</Link>
-              </li>
-              <li>
-                <Link href='/terms-of-service'>Terms of Service</Link>
+                <Link href='/privacy'>Privacy & Cookies</Link>
               </li>
             </ul>
           </nav>
