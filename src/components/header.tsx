@@ -5,6 +5,7 @@ import { motion } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../app/[locale]/page.module.scss';
+import LangSwitcher from './langSwitcher';
 
 export default function Header() {
   // HEADER CODE (desktop)
@@ -13,6 +14,7 @@ export default function Header() {
   const [headerBg, setHeaderBg] = useState<string>('rgba(245, 245, 245, 0)');
   const [wrapperPadding, setWrapperPadding] = useState<string>('0 0');
   const [ratioToScroll, setRatioToScroll] = useState<number>(0);
+  const [langOp, setLangOp] = useState<number>(1);
 
   // Function to handle scroll effects
   const handleScroll = () => {
@@ -20,6 +22,7 @@ export default function Header() {
 
     // For color and padding (0-400), but max opacity 0.75
     const rawRatio = Math.min(Math.max(scrollPos, 0), 400) / 400;
+    setLangOp(1 - rawRatio);
     const colorScrollRatio = Math.min(rawRatio, 0.5);
 
     // Basic ratio (200-600)
@@ -150,9 +153,26 @@ export default function Header() {
               </li>
             </ul>
           </nav>
-          <Link href='#' className={styles.ctaButton}>
-            Start your project
-          </Link>
+          <div className={styles.ctaButtonWrapper}>
+            <div
+              style={{
+                opacity: langOp,
+                display: langOp > 0 ? 'block' : 'none',
+              }}
+            >
+              <LangSwitcher />
+            </div>
+            <span
+              className={styles.ctaButton}
+              onClick={() =>
+                document
+                  .getElementById('footer')
+                  ?.scrollIntoView({ behavior: 'smooth' })
+              }
+            >
+              Start your project
+            </span>
+          </div>
         </div>
       </div>
     </motion.header>

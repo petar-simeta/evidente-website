@@ -52,33 +52,37 @@
       }
     }
 
-    .ctaButton {
+    .ctaButtonWrapper {
       position: relative;
       justify-self: end;
-      padding: 12px 56px 12px 20px;
-      font-size: 14px;
-      font-weight: 500;
-      background-color: var(--green-color);
-      border-radius: 36px;
 
-      &:after {
-        content: '';
-        position: absolute;
-        width: 18px;
-        height: 12px;
-        background-image: url('/arrow-right.svg');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        right: 25px;
-        top: 50%;
-        transform: translateY(-50%);
-        transition: transform 0.3s ease;
-      }
+      .ctaButton {
+        padding: 12px 56px 12px 20px;
+        font-size: 14px;
+        font-weight: 500;
+        background-color: var(--green-color);
+        border-radius: 36px;
+        cursor: pointer;
 
-      &:hover {
         &:after {
-          transform: translate(10px, -50%);
+          content: '';
+          position: absolute;
+          width: 18px;
+          height: 12px;
+          background-image: url('/arrow-right.svg');
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+          right: 25px;
+          top: 50%;
+          transform: translateY(-50%);
+          transition: transform 0.3s ease;
+        }
+
+        &:hover {
+          &:after {
+            transform: translate(10px, -50%);
+          }
         }
       }
     }
@@ -86,6 +90,41 @@
 
   .scrolled {
     width: 1000px;
+  }
+}
+
+/////////////////////////////////////////////////////
+// LANG SWITCHER
+
+.langSwitcherWrapper {
+  position: absolute;
+  left: -100px;
+  display: flex;
+  gap: 20px;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 1.55;
+
+  div {
+    cursor: pointer;
+
+    background-image: linear-gradient(var(--green-color) 0 0);
+    background-position: 0 100%;
+    background-size: 0 2px;
+    background-repeat: no-repeat;
+    transition:
+      background-size 0.2s,
+      background-position 0s 0.2s;
+
+    &:hover {
+      background-position: 100% 100%;
+      background-size: 100% 2px;
+    }
+  }
+
+  .active {
+    background-position: 100% 100%;
+    background-size: 100% 2px;
   }
 }
 
