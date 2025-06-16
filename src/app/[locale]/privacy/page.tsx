@@ -3,8 +3,11 @@
 import styles from '../page.module.scss';
 import Header from '../../../components/header';
 import Footer from '../../../components/footer';
+import { useTranslations } from 'next-intl';
 
 export default function Home() {
+  const t = useTranslations('Privacy');
+
   return (
     <div>
       <Header />
@@ -13,96 +16,14 @@ export default function Home() {
         <section className={styles.titleAndTextWrapper}>
           <div className='container'>
             <div className={styles.titleAndTextInnerWrapper}>
-              <h1>Privacy Policy</h1>
+              <h1>{t('Title')}</h1>
               <div className={styles.textWrapper}>
-                <h3>Uvod</h3>
-                <p>
-                  Dobrodošli u Evidente d.o.o. Ova pravila o privatnosti i
-                  obavijest o kolačićima pružaju detaljne informacije o tome
-                  kako prikupljamo, koristimo, upravljamo i štitimo vaše osobne
-                  podatke. Obvezujemo se osigurati privatnost i sigurnost vaših
-                  informacija.
-                </p>
-                <h2>Pravila o privatnosti</h2>
-                <h3>Prikupljanje podataka</h3>
-                <p>
-                  Evidente d.o.o. daje prioritet učinkovitosti i iskustvu
-                  korisnika, stoga prikupljamo samo minimalne podatke potrebne u
-                  te svrhe. Konkretno, prikupljamo postavke lokaliteta kako
-                  bismo prilagodili postavke jezika vašim potrebama, moguće da
-                  koristimo podatke o interakciji putem reCAPTCHA-e kako bismo
-                  spriječili zloupotrebu i spam, te moguće da koristimo podatke
-                  prikupljene alatima trećih strana za analitiku, kao što je
-                  Google Analytics, za poboljšanje naših usluga. Naš cilj nije
-                  prikupljati vaše podataka, već osigurati ugodno iskustvo na
-                  našoj web stranici, bez nepotrebnog prikupljanja podataka.
-                </p>
-                <h3>Korištenje informacija</h3>
-                <p>
-                  Prikupljene informacije koriste se isključivo u svrhu
-                  poboljšanja iskustva korisnika, osiguravanja sigurnosti web
-                  stranice i analize korištenja stranice kako bi mogli stranicu
-                  učiniti što boljom za Vas. Ne prodajemo niti iznajmljujemo
-                  osobne identifikacijske informacije korisnika drugima.
-                </p>
-                <h2>Politika kolačića</h2>
-                <p>
-                  Kolačići (nažalost, ne oni pravi) su male datoteke koje web
-                  stranica ili njezin pružatelj usluga prenosi na tvrdi disk
-                  vašeg računala putem vašeg web preglednika (ako dozvolite).
-                  Oni omogućuju sustavima web stranice ili pružatelja usluga da
-                  prepoznaju vaš preglednik i zabilježe te zapamte određene
-                  informacije.
-                </p>
-                <h3>Vrste kolačića koje koristimo</h3>
-                <h4>Esencijalni kolačići</h4>
-                <p>
-                  Neophodni za rad naše web stranice. Uključuju, na primjer,
-                  lokalne kolačiće koji nam omogućuju da odaberemo pravi jezik
-                  za vas.
-                </p>
-                <h4>Analički kolačići</h4>
-                <p>
-                  Omogućuju nam prepoznavanje i brojanje broja posjetitelja te
-                  da vidimo kako se posjetitelji kreću po našoj web stranici
-                  kada je koriste. To nam pomaže unaprijediti način rada naše
-                  web stranice.
-                </p>
-                <h4>Kolačići funkcionalnosti</h4>
-                <p>
-                  Koriste se za prepoznavanje kada se vratite na našu web
-                  stranicu. To nam omogućuje da zapamtimo vaše preferencije i
-                  učinimo vaš boravak ugodnijim.
-                </p>
-                <h3>Upravljanje kolačićima</h3>
-                <p>
-                  Imate mogućnost prihvatiti ili odbiti kolačiće. Većina web
-                  preglednika automatski prihvaća kolačiće, ali obično možete
-                  promijeniti postavku preglednika kako biste odbili kolačiće
-                  ako to preferirate. No pazite jer Vam too može uvelike
-                  smanjiti iskustvo na našem webu.
-                </p>
-                <h3>Vaša prava</h3>
-                <p>
-                  Imate pravo zatražiti pristup osobnim podacima koje
-                  posjedujemo o vama, ispraviti bilo kakve netočnosti, zatražiti
-                  brisanje ili ograničenje vaših osobnih podataka, usprotiviti
-                  se obradi i zahtijevati prenosivost podataka.
-                </p>
-                <h3>Promjene ove politike</h3>
-                <p>
-                  S vremena na vrijeme možemo ažurirati naša 'Pravila o
-                  privatnosti i Obavijest o kolačićima'. O svim promjenama
-                  obavijestit ćemo vas objavom novih Pravila o privatnosti na
-                  ovoj stranici. Savjetujemo vam da periodično pregledavate ova
-                  Pravila o privatnosti radi eventualnih promjena.
-                </p>
-                <h3>Kontaktirajte nas</h3>
-                <p>
-                  Ako imate bilo kakvih pitanja o privatnosti ili kolačićima,
-                  molimo vas da nas kontaktirate koristeći e-mail naveden u
-                  podnožju ove web stranice.
-                </p>
+                {t.rich('Body.Text', {
+                  h2: (chunks) => <h2>{chunks}</h2>,
+                  h3: (chunks) => <h3>{chunks}</h3>,
+                  h4: (chunks) => <h4>{chunks}</h4>,
+                  p: (chunks) => <p>{chunks}</p>,
+                })}
               </div>
             </div>
           </div>
