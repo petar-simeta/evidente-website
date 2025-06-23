@@ -29,6 +29,18 @@ export default function ServicesSection() {
     'Our partnership doesn’t end at launch. We provide ongoing support, updates, and maintenance, ensuring your solution continues to perform optimally and adapt to evolving needs.',
   ];
 
+  const logos = [
+    { src: '/partner-logos/autohrvatska-black-logo.svg', alt: 'Auto Hrvatska' },
+    { src: '/partner-logos/loreal-black-logo.svg', alt: "L'Oréal" },
+    { src: '/partner-logos/koncar-black-logo.svg', alt: 'Končar' },
+    { src: '/partner-logos/atlantic-black-logo.svg', alt: 'Atlantic Grupa' },
+    { src: '/partner-logos/otp-black-logo.svg', alt: 'OTP banka' },
+    { src: '/partner-logos/sabor-black-logo.svg', alt: 'Hrvatski sabor' },
+  ];
+
+  // Delay so logos animate only after previous content is in view
+  const baseDelay = 1.5 + services.length * 0.2 + 0.5; // 1.5 (heading) + buttons + small buffer
+
   return (
     <section id='services' className={styles.servicesSection}>
       <div className='container'>
@@ -115,6 +127,24 @@ export default function ServicesSection() {
               </motion.p>
             </motion.div>
           </div>
+        </div>
+
+        <div className={styles.blackLogosWrapper}>
+          {logos.map((logo, index) => (
+            <motion.img
+              key={index}
+              src={logo.src}
+              alt={logo.alt}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{
+                duration: 0.3,
+                delay: baseDelay + index * 0.2,
+                type: 'spring',
+                bounce: 0.4,
+              }}
+            />
+          ))}
         </div>
       </div>
     </section>
