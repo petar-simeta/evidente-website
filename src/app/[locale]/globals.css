@@ -78,8 +78,8 @@ dl {
 /* BLURRED LOGO MARQUEE */
 
 .blurred-logo-marquee {
-  --speed: 100;
-  --count: 12;
+  --speed: 60;
+  --count: 9;
   --scale: 1;
   --blur: 1;
   --blurs: 5;
@@ -87,7 +87,7 @@ dl {
   overflow: hidden;
   width: 100%;
   margin: auto;
-  height: 220px;
+  height: 230px;
   padding: 10px 0;
 }
 
@@ -104,7 +104,7 @@ dl {
 
 .blurred-logo-marquee ul {
   display: flex;
-  gap: 16px;
+  gap: 10px;
   padding: 0;
   margin: 0;
   list-style-type: none;

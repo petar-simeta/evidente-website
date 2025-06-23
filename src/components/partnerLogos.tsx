@@ -4,41 +4,33 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 const logoList1 = [
-  { src: '/partner-logos/atlantic-logo.svg', alt: 'Atlantic' },
-  { src: '/partner-logos/loreal-logo.svg', alt: "L'Oreal" },
-  { src: '/partner-logos/pbz-logo.svg', alt: 'PBZ' },
-  { src: '/partner-logos/otp-logo.svg', alt: 'OTP Banka' },
-  { src: '/partner-logos/cambridge-logo.svg', alt: 'University of Cambridge' },
-  { src: '/partner-logos/slatinska-logo.svg', alt: 'Slatinska banka' },
-  { src: '/partner-logos/autohrvatska-logo.svg', alt: 'AutoHrvatska' },
+  { src: '/partner-logos/loreal-logo.svg', alt: "L'Oréal" },
+  { src: '/partner-logos/sabor-logo.svg', alt: 'Hrvatski sabor' },
   { src: '/partner-logos/koncar-logo.svg', alt: 'Končar' },
-  { src: '/partner-logos/barcaffe-logo.svg', alt: 'Barcaffe' },
-  { src: '/partner-logos/farmacia-logo.svg', alt: 'Farmacia' },
-  { src: '/partner-logos/nzjz-logo.svg', alt: 'NZJZ Dr. Andrija Štampar' },
-  { src: '/partner-logos/ritosa-logo.svg', alt: 'Ritoša' },
+  { src: '/partner-logos/stampar-logo.svg', alt: 'NZJZ “Dr. Andrija Štampar”' },
+  { src: '/partner-logos/atlantic-logo.svg', alt: 'Atlantic Grupa' },
+  { src: '/partner-logos/otp-logo.svg', alt: 'OTP banka' },
+  { src: '/partner-logos/autohrvatska-logo.svg', alt: 'Auto Hrvatska' },
+  { src: '/partner-logos/mzozt-logo.svg', alt: 'MZOZT' },
+  { src: '/partner-logos/fruklab-logo.svg', alt: 'Fruklab' },
 ];
+
 const logoList2 = [
-  { src: '/partner-logos/sabor-logo.svg', alt: 'Hrvatski Sabor' },
-  { src: '/partner-logos/mingor-logo.svg', alt: 'MINGOR' },
-  { src: '/partner-logos/pivac-logo.svg', alt: 'Pivac' },
-  {
-    src: '/partner-logos/fruklab-logo.svg',
-    alt: 'Fruklab - University of Cambridge',
-  },
-  { src: '/partner-logos/rch-logo.svg', alt: 'Radiochirurgia' },
-  { src: '/partner-logos/perpetuum-logo.svg', alt: 'Perpetuum' },
-  { src: '/partner-logos/greenseeker-logo.svg', alt: 'Greenseeker' },
-  { src: '/partner-logos/klik-logo.svg', alt: 'Klik' },
-  { src: '/partner-logos/kroko-logo.svg', alt: 'Kroko tactical' },
+  { src: '/partner-logos/cambridge-logo.svg', alt: 'University of Cambridge' },
   { src: '/partner-logos/santini-logo.svg', alt: 'Santini' },
-  { src: '/partner-logos/tis-logo.svg', alt: 'TIS' },
-  { src: '/partner-logos/bluebird-logo.svg', alt: 'Bluebird' },
+  { src: '/partner-logos/barcaffe-logo.svg', alt: 'Barcaffe' },
+  { src: '/partner-logos/ritosa-logo.svg', alt: 'Ritoša' },
+  { src: '/partner-logos/pbz-logo.svg', alt: 'PBZ' },
+  { src: '/partner-logos/farmacia-logo.svg', alt: 'Farmacia' },
+  { src: '/partner-logos/perpetuum-logo.svg', alt: 'Perpetuum' },
+  { src: '/partner-logos/pivac-logo.svg', alt: 'Pivac' },
+  { src: '/partner-logos/kroko-logo.svg', alt: 'Kroko Tactical' },
 ];
 
 export default function PartnerLogos() {
   const BLURS = 8;
   const [timestamp, setTimestamp] = useState(Date.now());
-  const items = 12;
+  const items = 9;
   const blurring = true;
 
   useEffect(() => {
