@@ -20,19 +20,15 @@ export const metadata: Metadata = {
     "We're a software agency that specializes in thinking differently",
 };
 
-export async function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
   // Ensure that the incoming `locale` is valid
-  const { locale } = params;
+  const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
