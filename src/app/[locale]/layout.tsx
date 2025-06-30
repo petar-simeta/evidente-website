@@ -1,10 +1,10 @@
 import type React from 'react';
 import './globals.css';
-import type { Metadata } from 'next';
 import { Unbounded } from 'next/font/google';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/src/i18n/routing';
+import { getTranslations } from 'next-intl/server';
 
 // Load Unbounded font for headings
 const unbounded = Unbounded({
@@ -14,11 +14,15 @@ const unbounded = Unbounded({
   weight: ['300', '400', '500'],
 });
 
-export const metadata: Metadata = {
-  title: 'EVIDENTE | Web solutions',
-  description:
-    "We're a software agency that specializes in thinking differently",
-};
+export async function generateMetadata() {
+  const t = await getTranslations('Metadata');
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    metadataBase: new URL('https://evidente.hr/'),
+  };
+}
 
 export default async function LocaleLayout({
   children,
