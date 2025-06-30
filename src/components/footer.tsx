@@ -75,7 +75,9 @@ export default function Footer() {
 
         <div
           className={`${styles.scrollTopWrapper} ${
-            usePathname() !== '/' ? styles.alternateColorScrollTop : ''
+            ['/', '/hr'].includes(usePathname())
+              ? ''
+              : styles.alternateColorScrollTop
           }`}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
