@@ -6,7 +6,7 @@ import Footer from '../../../components/footer';
 import { useTranslations } from 'next-intl';
 
 export default function Home() {
-  const t = useTranslations('Privacy');
+  const t = useTranslations('privacy');
 
   return (
     <div>
@@ -16,9 +16,9 @@ export default function Home() {
         <section className={styles.titleAndTextWrapper}>
           <div className='container'>
             <div className={styles.titleAndTextInnerWrapper}>
-              <h1>{t('Title')}</h1>
+              <h1>{t('title')}</h1>
               <div className={styles.textWrapper}>
-                {t.rich('Body.Text', {
+                {t.rich('body.text', {
                   h2: (chunks) => <h2>{chunks}</h2>,
                   h3: (chunks) => <h3>{chunks}</h3>,
                   h4: (chunks) => <h4>{chunks}</h4>,

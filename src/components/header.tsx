@@ -6,8 +6,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../app/[locale]/page.module.scss';
 import LangSwitcher from './langSwitcher';
+import { useTranslations } from 'next-intl';
 
 export default function Header() {
+  const t = useTranslations('home.menu');
+
   // HEADER CODE (desktop)
   const [wrapperWidth, setWrapperWidth] = useState<number>(0);
   const [initialWidth, setInitialWidth] = useState<number>(0);
@@ -115,7 +118,7 @@ export default function Header() {
                       ?.scrollIntoView({ behavior: 'smooth' })
                   }
                 >
-                  About
+                  {t('menuLink0')}
                 </span>
               </li>
               <li>
@@ -126,7 +129,7 @@ export default function Header() {
                       ?.scrollIntoView({ behavior: 'smooth' })
                   }
                 >
-                  Work
+                  {t('menuLink1')}
                 </span>
               </li>
               <li>
@@ -137,7 +140,7 @@ export default function Header() {
                       ?.scrollIntoView({ behavior: 'smooth' })
                   }
                 >
-                  Services
+                  {t('menuLink2')}
                 </span>
               </li>
               <li>
@@ -148,7 +151,7 @@ export default function Header() {
                       ?.scrollIntoView({ behavior: 'smooth' })
                   }
                 >
-                  Contact
+                  {t('menuLink3')}
                 </span>
               </li>
             </ul>
@@ -170,7 +173,7 @@ export default function Header() {
                   ?.scrollIntoView({ behavior: 'smooth' })
               }
             >
-              Start your project
+              {t('startProject')}
             </span>
           </div>
         </div>

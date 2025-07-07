@@ -15,7 +15,7 @@ const unbounded = Unbounded({
 });
 
 export async function generateMetadata() {
-  const t = await getTranslations('Metadata');
+  const t = await getTranslations('metadata');
 
   return {
     title: t('title'),

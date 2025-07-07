@@ -3,8 +3,11 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'motion/react';
 import styles from '../app/[locale]/page.module.scss';
+import { useTranslations } from 'next-intl';
 
 export default function AboutSection() {
+  const t = useTranslations('home.about');
+
   const headingRef = useRef<HTMLHeadingElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(headingRef, { once: true });
@@ -41,34 +44,38 @@ export default function AboutSection() {
           <div className={styles.left}>
             <h2 ref={headingRef}>
               <span>
-                {'It starts with'.split('').map((char, index) => (
-                  <motion.span
-                    key={index}
-                    initial={{ opacity: 0 }}
-                    animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ delay: 0.5 + index * 0.04 }}
-                    style={{
-                      display: char === ' ' ? 'inline' : 'inline-block',
-                    }}
-                  >
-                    {char}
-                  </motion.span>
-                ))}
+                {t('title1')
+                  .split('')
+                  .map((char, index) => (
+                    <motion.span
+                      key={index}
+                      initial={{ opacity: 0 }}
+                      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                      transition={{ delay: 0.5 + index * 0.04 }}
+                      style={{
+                        display: char === ' ' ? 'inline' : 'inline-block',
+                      }}
+                    >
+                      {char}
+                    </motion.span>
+                  ))}
               </span>
               <span>
-                {'emotion ✨'.split('').map((char, index) => (
-                  <motion.span
-                    key={index}
-                    initial={{ opacity: 0 }}
-                    animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ delay: 1.2 + index * 0.04 }}
-                    style={{
-                      display: char === ' ' ? 'inline' : 'inline-block',
-                    }}
-                  >
-                    {char}
-                  </motion.span>
-                ))}
+                {t('title2')
+                  .split('')
+                  .map((char, index) => (
+                    <motion.span
+                      key={index}
+                      initial={{ opacity: 0 }}
+                      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                      transition={{ delay: 1.2 + index * 0.04 }}
+                      style={{
+                        display: char === ' ' ? 'inline' : 'inline-block',
+                      }}
+                    >
+                      {char}
+                    </motion.span>
+                  ))}
               </span>
             </h2>
           </div>
@@ -78,16 +85,14 @@ export default function AboutSection() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
               transition={{ delay: 1.8, duration: 0.5 }}
             >
-              And ends with eye-catching design, authentic stories, and
-              meaningful experiences.
+              {t('p1')}
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: -20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
               transition={{ delay: 2.3, duration: 0.5 }}
             >
-              We are a software agency in Croatia that cares about you and your
-              brand, no matter the size or what industry your business is in.
+              {t('p2')}
             </motion.p>
           </div>
         </div>

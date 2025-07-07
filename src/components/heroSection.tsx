@@ -7,7 +7,7 @@ import styles from '../app/[locale]/page.module.scss';
 import HeroImageCarousel from './heroImageCarousel';
 
 export default function HeroSection() {
-  const t = useTranslations('Home.Hero');
+  const t = useTranslations('home.hero');
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
