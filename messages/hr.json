@@ -16,6 +16,16 @@
       "title2": "emocijom ✨",
       "p1": "A završava upečatljivim dizajnom, autentičnim pričama i smislenim iskustvima.",
       "p2": "Mi smo softverska agencija iz Hrvatske koja brine o vama i vašem brendu, bez obzira na veličinu ili industriju vašeg poslovanja."
+    },
+    "features": {
+      "blueBoxTitle": "Pametni tehnološki odabiri",
+      "blueBoxParagraph": "Svaki alat koji koristimo strateški je odabran kako bi se savršeno uskladio s ciljevima projekta i pružio izvanredna digitalna iskustva.",
+      "blackBoxTitle": "Iskustvo",
+      "blackBoxParagraph": "Kvaliteta prije kvantitete: S oko 50 značajnih projekata iza nas, iznimno smo ponosni na svako kreirano rješenje.",
+      "yellowBoxSubtitle": "Uspješno dovršeni projekti",
+      "yellowBoxLink": "Kontaktirajte nas",
+      "greyBoxTitle": "Prilagođeno svim uređajima i preglednicima!",
+      "greyBoxParagraph": "Potpuno responzivno i pouzdano optimizirano—vaši će korisnici uživati u besprijekornom iskustvu na svim uređajima i preglednicima."
     }
   },
   "privacy": {

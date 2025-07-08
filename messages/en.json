@@ -16,6 +16,16 @@
       "title2": "emotion ✨",
       "p1": "And ends with eye-catching design, authentic stories, and meaningful experiences.",
       "p2": "We are a software agency in Croatia that cares about you and your brand, no matter the size or what industry your business is in."
+    },
+    "features": {
+      "blueBoxTitle": "Smart Tech Choices",
+      "blueBoxParagraph": "Every tool we use is chosen strategically, aligning perfectly with project goals to deliver outstanding digital experiences.",
+      "blackBoxTitle": "Experience",
+      "blackBoxParagraph": "Quality over quantity: With about 50 impactful projects behind us, we remain deeply proud of every single solution we’ve crafted.",
+      "yellowBoxSubtitle": "Successful projects completed",
+      "yellowBoxLink": "Contact us",
+      "greyBoxTitle": "Responsive for every device and browser!",
+      "greyBoxParagraph": "Fully responsive and reliably optimized—your users will enjoy a flawless browsing experience across all devices and browsers."
     }
   },
   "privacy": {

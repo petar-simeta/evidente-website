@@ -6,10 +6,13 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function FeaturesSection() {
+  const t = useTranslations('home.features');
+
   const containerRef = useRef<HTMLDivElement>(null);
   const forwardRef = useRef<HTMLDivElement>(null);
   const backwardRef = useRef<HTMLDivElement>(null);
@@ -148,11 +151,8 @@ export default function FeaturesSection() {
 
             {/* Tech Toolbox Content */}
             <div className={styles.content}>
-              <h3>Smart Tech Choices</h3>
-              <p>
-                Every tool we use is chosen strategically, aligning perfectly
-                with project goals to deliver outstanding digital experiences.
-              </p>
+              <h3>{t('blueBoxTitle')}</h3>
+              <p>{t('blueBoxParagraph')}</p>
             </div>
 
             {/* Tech Toolbox Mask */}
@@ -161,20 +161,16 @@ export default function FeaturesSection() {
 
           {/* Experience Card */}
           <div className={`${styles.featureCard} ${styles.experienceCard}`}>
-            <h3>Experience</h3>
-            <p>
-              We maintain a relentless pursuit for innovation and excellence.
-              Our team has delivered over 50 successful projects across various
-              industries, helping clients stand out from the competition.
-            </p>
+            <h3>{t('blackBoxTitle')}</h3>
+            <p>{t('blackBoxParagraph')}</p>
           </div>
 
           {/* Projects Card */}
           <div className={`${styles.featureCard} ${styles.projectsCard}`}>
             <h3>50+</h3>
-            <p>Successful projects completed</p>
+            <p>{t('yellowBoxSubtitle')}</p>
             <Link href='#contact' className={styles.contactButton}>
-              Contact us
+              {t('yellowBoxLink')}
             </Link>
             <div
               className={styles.scrollToWorkWrapper}
@@ -189,13 +185,10 @@ export default function FeaturesSection() {
             </div>
           </div>
 
-          {/* Responsive Sard Card */}
+          {/* Responsive Card */}
           <div className={`${styles.featureCard} ${styles.responsiveCard}`}>
-            <h3>Responsive for every device and browser!</h3>
-            <p>
-              Fully responsive and reliably optimized—your users will enjoy a
-              flawless browsing experience across all devices and browsers.
-            </p>
+            <h3>{t('greyBoxTitle')}</h3>
+            <p>{t('greyBoxParagraph')}</p>
             <div className={styles.deviceImage}>
               <Image
                 src='/laptop-and-phone.png'
