@@ -63,6 +63,23 @@
           "description": "Naše partnerstvo ne završava lansiranjem. Pružamo kontinuiranu podršku, ažuriranja i održavanje kako bi vaše rješenje i dalje odlično funkcioniralo i prilagođavalo se novim potrebama."
         }
       ]
+    },
+    "footer": {
+      "upper": {
+        "aboveTitle": "Rezervirajte termin",
+        "title": "Započnimo suradnju",
+        "subtitle": "Javite nam se putem e-pošte—povežimo se i otkrijmo jesmo li pravi izbor!",
+        "button": "Kontaktirajte nas"
+      },
+      "footer": {
+        "title": [
+          "Kreiramo rješenja koja pokreću vaše poslovanje.",
+          "Javite nam se."
+        ],
+        "iban": "IBAN: ",
+        "croatia": "Hrvatska",
+        "privacy": "Privatnost i kolačići"
+      }
     }
   },
   "privacy": {

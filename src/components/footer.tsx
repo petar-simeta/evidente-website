@@ -6,8 +6,11 @@ import PartnerLogos from './partnerLogos';
 import { Link } from '../i18n/navigation';
 import { usePathname } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 
 export default function Footer() {
+  const t = useTranslations('home.footer.footer');
+
   const [showCopiedTooltip, setShowCopiedTooltip] = useState(false);
 
   const handleCopyEmail = () => {
@@ -37,15 +40,14 @@ export default function Footer() {
           </div>
 
           <h4>
-            We create solutions that drive your business.{' '}
-            <span>Get in touch.</span>
+            {t('title.0')} <span>{t('title.1')}</span>
           </h4>
 
           <div className={styles.firmInfo}>
             <span>Evidente d.o.o</span>
             <span>Prečko 22</span>
-            <span>VAT: HR48530401743</span>
-            <span>Zagreb, Croatia</span>
+            <span>{t('iban')}48530401743</span>
+            <span>Zagreb, {t('croatia')}</span>
           </div>
 
           <button className={styles.ctaButton} onClick={handleCopyEmail}>
@@ -67,7 +69,7 @@ export default function Footer() {
           <nav className={styles.links}>
             <ul>
               <li>
-                <Link href='/privacy'>Privacy & Cookies</Link>
+                <Link href='/privacy'>{t('privacy')}</Link>
               </li>
             </ul>
           </nav>

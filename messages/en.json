@@ -63,6 +63,23 @@
           "description": "Our partnership doesn’t end at launch. We provide ongoing support, updates, and maintenance, ensuring your solution continues to perform optimally and adapt to evolving needs."
         }
       ]
+    },
+    "footer": {
+      "upper": {
+        "aboveTitle": "Booking",
+        "title": "Let's Work Together",
+        "subtitle": "Reach out through email—let’s connect and discover if we’re a right match!",
+        "button": "Connect with Us"
+      },
+      "footer": {
+        "title": [
+          "We create solutions that drive your business.",
+          "Get in touch."
+        ],
+        "iban": "VAT: HR",
+        "croatia": "Croatia",
+        "privacy": "Privacy & Cookies"
+      }
     }
   },
   "privacy": {
