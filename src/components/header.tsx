@@ -118,7 +118,7 @@ export default function Header() {
                       ?.scrollIntoView({ behavior: 'smooth' })
                   }
                 >
-                  {t('menuLink0')}
+                  {t('links.0')}
                 </span>
               </li>
               <li>
@@ -129,7 +129,7 @@ export default function Header() {
                       ?.scrollIntoView({ behavior: 'smooth' })
                   }
                 >
-                  {t('menuLink1')}
+                  {t('links.1')}
                 </span>
               </li>
               <li>
@@ -140,7 +140,7 @@ export default function Header() {
                       ?.scrollIntoView({ behavior: 'smooth' })
                   }
                 >
-                  {t('menuLink2')}
+                  {t('links.2')}
                 </span>
               </li>
               <li>
@@ -151,7 +151,7 @@ export default function Header() {
                       ?.scrollIntoView({ behavior: 'smooth' })
                   }
                 >
-                  {t('menuLink3')}
+                  {t('links.3')}
                 </span>
               </li>
             </ul>

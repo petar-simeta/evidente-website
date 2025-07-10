@@ -4,15 +4,17 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import styles from '../app/[locale]/page.module.scss';
+import { useTranslations } from 'next-intl';
 
 export default function HeaderMobile() {
+  const t = useTranslations('home.menu');
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
-    { id: 'about', label: 'About' },
-    { id: 'work', label: 'Work' },
-    { id: 'services', label: 'Services' },
-    { id: 'footer', label: 'Contact' },
+    { id: 'about', label: t('links.0') },
+    { id: 'work', label: t('links.1') },
+    { id: 'services', label: t('links.2') },
+    { id: 'footer', label: t('links.3') },
   ];
 
   const handleLinkClick = (id: string) => {

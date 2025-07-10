@@ -1,15 +1,11 @@
 {
   "home": {
     "menu": {
-      "menuLink0": "About",
-      "menuLink1": "Work",
-      "menuLink2": "Services",
-      "menuLink3": "Contact",
+      "links": ["About", "Work", "Services", "Contact"],
       "startProject": "Start your project"
     },
     "hero": {
-      "mainTitle1": "Custom Web Solutions",
-      "mainTitle2": "Designed for You"
+      "title": ["Custom Web Solutions", "Designed for You"]
     },
     "about": {
       "title1": "It starts with",
@@ -26,6 +22,47 @@
       "yellowBoxLink": "Contact us",
       "greyBoxTitle": "Responsive for every device and browser!",
       "greyBoxParagraph": "Fully responsive and reliably optimized—your users will enjoy a flawless browsing experience across all devices and browsers."
+    },
+    "work": {
+      "title": "Featured Work",
+      "button": "See more project"
+    },
+    "services": {
+      "title": [
+        "Our team delivers",
+        "innovative web experiences",
+        "that drive results"
+      ],
+      "content": [
+        {
+          "title": "Concept Discovery",
+          "description": "Every great project starts with a clear idea. We listen closely and ask the right questions. Together, we lay the groundwork for turning your vision into something tangible."
+        },
+        {
+          "title": "Brainstorming Workshop",
+          "description": "In this phase, collaboration drives innovation. We explore various approaches, refine each concept, and map out a solid plan to transform your idea into an executable strategy."
+        },
+        {
+          "title": "Visual Design",
+          "description": "Here, we translate concepts into engaging visuals and intuitive interfaces. Our goal is to create designs that not only look exceptional but also deliver a seamless experience for your users."
+        },
+        {
+          "title": "Solution Development",
+          "description": "This is where designs come to life. Leveraging modern technologies and best practices, we build robust, scalable solutions tailored precisely to your requirements."
+        },
+        {
+          "title": "Quality Assurance",
+          "description": "Quality is our top priority. Through thorough testing—functional, performance, and usability—we ensure your solution is reliable, bug-free, and ready to impress end users."
+        },
+        {
+          "title": "Strategic Launch",
+          "description": "Launching is more than just going live—it’s setting the stage for future growth. We coordinate deployments carefully, monitor initial performance, and make sure everything runs smoothly from day one."
+        },
+        {
+          "title": "Ongoing Support",
+          "description": "Our partnership doesn’t end at launch. We provide ongoing support, updates, and maintenance, ensuring your solution continues to perform optimally and adapt to evolving needs."
+        }
+      ]
     }
   },
   "privacy": {

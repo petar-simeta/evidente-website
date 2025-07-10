@@ -4,6 +4,7 @@ import { useState, useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import Image from 'next/image';
 import styles from '../app/[locale]/page.module.scss';
+import { useTranslations } from 'next-intl';
 
 interface Project {
   id: number;
@@ -14,6 +15,8 @@ interface Project {
 }
 
 export default function WorkSection() {
+  const t = useTranslations('home.work');
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -80,16 +83,18 @@ export default function WorkSection() {
       <div className='container'>
         <h2 ref={ref}>
           <span>
-            {'Featured Work'.split('').map((char, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ delay: index * 0.03 }}
-              >
-                {char}
-              </motion.span>
-            ))}
+            {t('title')
+              .split('')
+              .map((char, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0 }}
+                  animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                  transition={{ delay: index * 0.03 }}
+                >
+                  {char}
+                </motion.span>
+              ))}
           </span>
         </h2>
 
@@ -142,7 +147,7 @@ export default function WorkSection() {
                 bounce: 0.4,
               }}
             >
-              See more project
+              {t('button')}
             </motion.button>
           </div>
         )}

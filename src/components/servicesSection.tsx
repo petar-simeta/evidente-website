@@ -3,8 +3,11 @@
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'motion/react';
 import styles from '../app/[locale]/page.module.scss';
+import { useTranslations } from 'next-intl';
 
 export default function ServicesSection() {
+  const t = useTranslations('home.services');
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const [activeService, setActiveService] = useState(0);
@@ -47,46 +50,52 @@ export default function ServicesSection() {
         <div className={styles.servicesInnerWrapper}>
           <h2 ref={ref}>
             <span>
-              {'Our team delivers'.split('').map((char, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0 }}
-                  animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                  transition={{ delay: index * 0.03 }}
-                >
-                  {char}
-                </motion.span>
-              ))}
+              {t('title.0')
+                .split('')
+                .map((char, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0 }}
+                    animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ delay: index * 0.03 }}
+                  >
+                    {char}
+                  </motion.span>
+                ))}
             </span>
             <span className={styles.yellowText}>
-              {'innovative web experiences'.split('').map((char, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0 }}
-                  animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                  transition={{ delay: 0.6 + index * 0.03 }}
-                >
-                  {char}
-                </motion.span>
-              ))}
+              {t('title.1')
+                .split('')
+                .map((char, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0 }}
+                    animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ delay: 0.6 + index * 0.03 }}
+                  >
+                    {char}
+                  </motion.span>
+                ))}
             </span>
             <span>
-              {'that drive results'.split('').map((char, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0 }}
-                  animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                  transition={{ delay: 1.5 + index * 0.03 }}
-                >
-                  {char}
-                </motion.span>
-              ))}
+              {t('title.2')
+                .split('')
+                .map((char, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0 }}
+                    animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ delay: 1.5 + index * 0.03 }}
+                  >
+                    {char}
+                  </motion.span>
+                ))}
             </span>
           </h2>
 
           <div className={styles.servicesContent}>
             <div className={styles.serviceButtons}>
-              {services.map((service, index) => (
+              {services.map((_service, index) => (
                 <motion.button
                   key={index}
                   className={`${styles.serviceButton} ${activeService === index ? styles.active : ''}`}
@@ -102,7 +111,7 @@ export default function ServicesSection() {
                     bounce: 0.4,
                   }}
                 >
-                  <span>{service}</span>
+                  <span>{t(`content.${index}.title`)}</span>
                 </motion.button>
               ))}
             </div>
@@ -123,7 +132,7 @@ export default function ServicesSection() {
                   bounce: 0.4,
                 }}
               >
-                {serviceContent[activeService]}
+                {t(`content.${activeService}.description`)}
               </motion.p>
             </motion.div>
           </div>

@@ -16,7 +16,7 @@ export default function HeroSection() {
     <section className={styles.hero}>
       <h1 className={styles.title} ref={ref}>
         <span>
-          {t('mainTitle1')
+          {t('title.0')
             .split('')
             .map((char, index) => (
               <motion.span
@@ -30,7 +30,7 @@ export default function HeroSection() {
             ))}
         </span>
         <span>
-          {t('mainTitle2')
+          {t('title.1')
             .split('')
             .map((char, index) => (
               <motion.span

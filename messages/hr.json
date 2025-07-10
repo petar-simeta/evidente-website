@@ -1,15 +1,11 @@
 {
   "home": {
     "menu": {
-      "menuLink0": "O nama",
-      "menuLink1": "Radovi",
-      "menuLink2": "Usluge",
-      "menuLink3": "Kontakt",
+      "links": ["O nama", "Radovi", "Usluge", "Kontakt"],
       "startProject": "Započni svoj projekt"
     },
     "hero": {
-      "mainTitle1": "Web rješenja",
-      "mainTitle2": "prilagođena za vas"
+      "title": ["Web rješenja", "prilagođena za vas"]
     },
     "about": {
       "title1": "Sve počinje s",
@@ -26,6 +22,47 @@
       "yellowBoxLink": "Kontaktirajte nas",
       "greyBoxTitle": "Prilagođeno svim uređajima i preglednicima!",
       "greyBoxParagraph": "Potpuno responzivno i pouzdano optimizirano—vaši će korisnici uživati u besprijekornom iskustvu na svim uređajima i preglednicima."
+    },
+    "work": {
+      "title": "Istaknuti projekti",
+      "button": "Pogledaj više projekata"
+    },
+    "services": {
+      "title": [
+        "Naš tim isporučuje",
+        "inovativna web iskustva",
+        "koja donose rezultate"
+      ],
+      "content": [
+        {
+          "title": "Otkrivanje koncepta",
+          "description": "Svaki veliki projekt započinje jasnom idejom. Pažljivo slušamo i postavljamo prava pitanja, a zajedno postavljamo temelje za pretvaranje vaše vizije u opipljive rezultate."
+        },
+        {
+          "title": "Radionica ideja",
+          "description": "U ovoj fazi suradnja potiče inovacije. Istražujemo različite pristupe, usavršavamo koncepte i izrađujemo čvrst plan za pretvaranje ideja u izvedivu strategiju."
+        },
+        {
+          "title": "Vizualni dizajn",
+          "description": "Ovdje koncept pretvaramo u privlačne vizuale i intuitivne sučelja. Cilj nam je kreirati dizajn koji ne samo da izgleda izvrsno, nego pruža besprijekorno korisničko iskustvo."
+        },
+        {
+          "title": "Razvoj rješenja",
+          "description": "Ovdje dizajn postaje stvarnost. Koristeći moderne tehnologije i najbolje prakse, gradimo robusna i skalabilna rješenja prilagođena vašim zahtjevima."
+        },
+        {
+          "title": "Osiguranje kvalitete",
+          "description": "Kvaliteta nam je prioritet. Temeljitim testiranjem funkcionalnosti, performansi i upotrebljivosti osiguravamo da je rješenje pouzdano, bez grešaka i spremno oduševiti krajnje korisnike."
+        },
+        {
+          "title": "Strateško lansiranje",
+          "description": "Lansiranje nije samo objava – to je postavljanje temelja za budući rast. Pažljivo koordiniramo uvođenje, pratimo početne performanse i osiguravamo besprijekorno funkcioniranje od prvog dana."
+        },
+        {
+          "title": "Kontinuirana podrška",
+          "description": "Naše partnerstvo ne završava lansiranjem. Pružamo kontinuiranu podršku, ažuriranja i održavanje kako bi vaše rješenje i dalje odlično funkcioniralo i prilagođavalo se novim potrebama."
+        }
+      ]
     }
   },
   "privacy": {
