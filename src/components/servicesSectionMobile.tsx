@@ -3,31 +3,18 @@
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'motion/react';
 import styles from '../app/[locale]/page.module.scss';
+import { useTranslations } from 'next-intl';
 
 export default function ServicesSectionMobile() {
+  const t = useTranslations('home.services');
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const [activeService, setActiveService] = useState(0);
 
-  const services = [
-    'Concept Discovery',
-    'Brainstorming Workshop',
-    'Visual Design',
-    'Solution Development',
-    'Quality Assurance',
-    'Strategic Launch',
-    'Ongoing Support',
-  ];
-
-  const serviceContent = [
-    'Every great project starts with a clear idea. We listen closely and ask the right questions. Together, we lay the groundwork for turning your vision into something tangible.',
-    'In this phase, collaboration drives innovation. We explore various approaches, refine each concept, and map out a solid plan to transform your idea into an executable strategy.',
-    'Here, we translate concepts into engaging visuals and intuitive interfaces. Our goal is to create designs that not only look exceptional but also deliver a seamless experience for your users.',
-    'This is where designs come to life. Leveraging modern technologies and best practices, we build robust, scalable solutions tailored precisely to your requirements.',
-    'Quality is our top priority. Through thorough testing—functional, performance, and usability—we ensure your solution is reliable, bug-free, and ready to impress end users.',
-    'Launching is more than just going live—it’s setting the stage for future growth. We coordinate deployments carefully, monitor initial performance, and make sure everything runs smoothly from day one.',
-    'Our partnership doesn’t end at launch. We provide ongoing support, updates, and maintenance, ensuring your solution continues to perform optimally and adapt to evolving needs.',
-  ];
+  const services = Array.from({ length: 7 }, (_, index) =>
+    t(`content.${index}.title`)
+  );
 
   const logos = [
     { src: '/partner-logos/autohrvatska-black-logo.svg', alt: 'Auto Hrvatska' },
@@ -123,7 +110,7 @@ export default function ServicesSectionMobile() {
                         bounce: 0.4,
                       }}
                     >
-                      {serviceContent[index]}
+                      {t(`content.${activeService}.description`)}
                     </motion.p>
                   </motion.div>
                 )}
