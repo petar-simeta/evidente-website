@@ -169,16 +169,18 @@ export default function Header() {
             >
               <LangSwitcher />
             </div>
-            <span
-              className={styles.ctaButton}
-              onClick={() =>
-                document
-                  .getElementById('footer')
-                  ?.scrollIntoView({ behavior: 'smooth' })
-              }
-            >
-              {t('startProject')}
-            </span>
+            {(pathname === '/' || pathname === '/hr') && (
+              <span
+                className={styles.ctaButton}
+                onClick={() =>
+                  document
+                    .getElementById('footer')
+                    ?.scrollIntoView({ behavior: 'smooth' })
+                }
+              >
+                {t('startProject')}
+              </span>
+            )}
           </div>
         </div>
       </div>
