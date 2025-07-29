@@ -26,21 +26,21 @@ export default function WorkSection() {
       title: 'Barcaffe Shop',
       year: '2024',
       image: '/barcaffe.jpeg',
-      tags: ['Webflow Dev', 'Custom Code'],
+      tags: ['Research', 'Design', 'System architecture', 'Development'],
     },
     {
       id: 2,
       title: 'OTP banka',
       year: '2024',
       image: '/otp.jpeg',
-      tags: ['Web Design', 'Wireframing'],
+      tags: ['Backend', 'Frontend', 'Support'],
     },
     {
       id: 3,
       title: 'Končar',
       year: '2024',
       image: '/koncar.jpeg',
-      tags: ['Web Design', 'Wireframing'],
+      tags: ['Backend', 'Frontend', 'CMS integration', 'Support'],
     },
   ];
 
@@ -50,21 +50,21 @@ export default function WorkSection() {
       title: 'Auto Hrvatska',
       year: '2024',
       image: '/autohrvatska.jpeg',
-      tags: ['UI Design', 'Development'],
+      tags: ['Research', 'Design', 'Development', 'Support'],
     },
     {
       id: 5,
       title: 'Hrvatski Sabor',
       year: '2024',
       image: '/sabor.jpeg',
-      tags: ['Branding', 'Web Design'],
+      tags: ['Design', 'Development', 'Support'],
     },
     {
       id: 6,
       title: 'Farmacia',
       year: '2024',
       image: '/farmacia.jpeg',
-      tags: ['UX Research', 'Development'],
+      tags: ['Design', 'Backend', 'Frontend', 'Support'],
     },
   ];
 
