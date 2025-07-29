@@ -4,12 +4,14 @@ import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import styles from '../app/[locale]/page.module.scss';
 import LangSwitcher from './langSwitcher';
 import { useTranslations } from 'next-intl';
 
 export default function Header() {
   const t = useTranslations('home.menu');
+  const pathname = usePathname();
 
   // HEADER CODE (desktop)
   const [wrapperWidth, setWrapperWidth] = useState<number>(0);
@@ -108,54 +110,56 @@ export default function Header() {
               priority
             />
           </Link>
-          <nav className={styles.navigation}>
-            <ul>
-              <li>
-                <span
-                  onClick={() =>
-                    document
-                      .getElementById('about')
-                      ?.scrollIntoView({ behavior: 'smooth' })
-                  }
-                >
-                  {t('links.0')}
-                </span>
-              </li>
-              <li>
-                <span
-                  onClick={() =>
-                    document
-                      .getElementById('work')
-                      ?.scrollIntoView({ behavior: 'smooth' })
-                  }
-                >
-                  {t('links.1')}
-                </span>
-              </li>
-              <li>
-                <span
-                  onClick={() =>
-                    document
-                      .getElementById('services')
-                      ?.scrollIntoView({ behavior: 'smooth' })
-                  }
-                >
-                  {t('links.2')}
-                </span>
-              </li>
-              <li>
-                <span
-                  onClick={() =>
-                    document
-                      .getElementById('footer')
-                      ?.scrollIntoView({ behavior: 'smooth' })
-                  }
-                >
-                  {t('links.3')}
-                </span>
-              </li>
-            </ul>
-          </nav>
+          {(pathname === '/' || pathname === '/hr') && (
+            <nav className={styles.navigation}>
+              <ul>
+                <li>
+                  <span
+                    onClick={() =>
+                      document
+                        .getElementById('about')
+                        ?.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  >
+                    {t('links.0')}
+                  </span>
+                </li>
+                <li>
+                  <span
+                    onClick={() =>
+                      document
+                        .getElementById('work')
+                        ?.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  >
+                    {t('links.1')}
+                  </span>
+                </li>
+                <li>
+                  <span
+                    onClick={() =>
+                      document
+                        .getElementById('services')
+                        ?.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  >
+                    {t('links.2')}
+                  </span>
+                </li>
+                <li>
+                  <span
+                    onClick={() =>
+                      document
+                        .getElementById('footer')
+                        ?.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  >
+                    {t('links.3')}
+                  </span>
+                </li>
+              </ul>
+            </nav>
+          )}
           <div className={styles.ctaButtonWrapper}>
             <div
               style={{

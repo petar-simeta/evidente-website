@@ -4,13 +4,26 @@ import styles from '../page.module.scss';
 import Header from '../../../components/header';
 import Footer from '../../../components/footer';
 import { useTranslations } from 'next-intl';
+import HeaderMobile from '@/src/components/headerMobile';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [isDesktop, setIsDesktop] = useState<boolean>(false);
   const t = useTranslations('privacy');
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 1100);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div>
-      <Header />
+      {isDesktop ? <Header /> : <HeaderMobile />}
 
       <main>
         <section className={styles.titleAndTextWrapper}>

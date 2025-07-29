@@ -5,9 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import styles from '../app/[locale]/page.module.scss';
 import { useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 export default function HeaderMobile() {
   const t = useTranslations('home.menu');
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
@@ -30,56 +33,64 @@ export default function HeaderMobile() {
       <div className={styles.inner}>
         {/* Logo */}
         <div className={styles.logo}>
-          <Image
-            src='/evidente-logo.svg'
-            alt='Evidente Logo'
-            width={150}
-            height={20}
-            priority
-          />
+          <Link href='/'>
+            <Image
+              src='/evidente-logo.svg'
+              alt='Evidente Logo'
+              width={150}
+              height={20}
+              priority
+            />
+          </Link>
         </div>
 
         {/* Hamburger */}
-        <button
-          className={styles.hamburger}
-          onClick={() => setIsOpen(true)}
-          aria-label='Open menu'
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+        {(pathname === '/' || pathname === '/hr') && (
+          <button
+            className={styles.hamburger}
+            onClick={() => setIsOpen(true)}
+            aria-label='Open menu'
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        )}
       </div>
 
       {/* Full-screen modal */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className={styles.modalOverlay}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <nav className={styles.modalNav}>
-              <ul>
-                {links.map(({ id, label }) => (
-                  <li key={id}>
-                    <button onClick={() => handleLinkClick(id)}>{label}</button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+      {(pathname === '/' || pathname === '/hr') && (
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              className={styles.modalOverlay}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <nav className={styles.modalNav}>
+                <ul>
+                  {links.map(({ id, label }) => (
+                    <li key={id}>
+                      <button onClick={() => handleLinkClick(id)}>
+                        {label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
 
-            {/* Close area / button */}
-            <button
-              className={styles.closeButton}
-              onClick={() => setIsOpen(false)}
-              aria-label='Close menu'
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+              {/* Close area / button */}
+              <button
+                className={styles.closeButton}
+                onClick={() => setIsOpen(false)}
+                aria-label='Close menu'
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
     </header>
   );
 }

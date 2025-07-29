@@ -157,7 +157,10 @@ export default function FeaturesSectionMobile() {
             <p>{t('blackBoxParagraph')}</p>
             <h3 className={styles.biggerNumberTitle}>50+</h3>
             <p>{t('yellowBoxSubtitle')}</p>
-            <Link href='#contact' className={styles.contactButton}>
+            <Link
+              href='mailto:support@evidente.com?subject=I%27m%20interested%20in%20working%20with%20you&body=Dear%20Evidente%2C%20my%20name%20is'
+              className={styles.contactButton}
+            >
               {t('yellowBoxLink')}
             </Link>
           </div>
