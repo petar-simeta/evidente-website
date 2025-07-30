@@ -96,35 +96,77 @@
 /////////////////////////////////////////////////////
 // LANG SWITCHER
 
-.langSwitcherWrapper {
-  position: absolute;
-  left: -100px;
-  display: flex;
-  gap: 20px;
-  text-transform: uppercase;
-  font-size: 14px;
-  line-height: 1.55;
+@media (min-width: 1101px) {
+  .langSwitcherWrapper {
+    position: absolute;
+    left: -100px;
+    display: flex;
+    gap: 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 1.55;
 
-  a {
-    cursor: pointer;
+    a {
+      cursor: pointer;
 
-    background-image: linear-gradient(var(--green-color) 0 0);
-    background-position: 0 100%;
-    background-size: 0 2px;
-    background-repeat: no-repeat;
-    transition:
-      background-size 0.2s,
-      background-position 0s 0.2s;
+      background-image: linear-gradient(var(--green-color) 0 0);
+      background-position: 0 100%;
+      background-size: 0 2px;
+      background-repeat: no-repeat;
+      transition:
+        background-size 0.2s,
+        background-position 0s 0.2s;
 
-    &:hover {
+      &:hover {
+        background-position: 100% 100%;
+        background-size: 100% 2px;
+      }
+    }
+
+    .active {
       background-position: 100% 100%;
       background-size: 100% 2px;
     }
   }
+}
 
-  .active {
-    background-position: 100% 100%;
-    background-size: 100% 2px;
+@media (max-width: 1100px) {
+  .langSwitcherWrapper {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 40px;
+    color: white;
+
+    a {
+      color: var(--almost-white-color);
+      background: none;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 22px;
+
+      cursor: pointer;
+
+      background-image: linear-gradient(var(--green-color) 0 0);
+      background-position: 0 100%;
+      background-size: 0 2px;
+      background-repeat: no-repeat;
+      transition:
+        background-size 0.2s,
+        background-position 0s 0.2s;
+
+      &:hover {
+        background-position: 100% 100%;
+        background-size: 100% 2px;
+      }
+    }
+
+    .active {
+      background-position: 100% 100%;
+      background-size: 100% 2px;
+    }
   }
 }
 
@@ -205,7 +247,7 @@
         background: none;
         border: none;
         color: #fff;
-        font-size: 1.5rem;
+        font-size: 24px;
         text-transform: uppercase;
         letter-spacing: 1px;
         cursor: pointer;

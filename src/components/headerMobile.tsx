@@ -7,6 +7,7 @@ import styles from '../app/[locale]/page.module.scss';
 import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import LangSwitcher from './langSwitcher';
 
 export default function HeaderMobile() {
   const t = useTranslations('home.menu');
@@ -45,30 +46,28 @@ export default function HeaderMobile() {
         </div>
 
         {/* Hamburger */}
-        {(pathname === '/' || pathname === '/hr') && (
-          <button
-            className={styles.hamburger}
-            onClick={() => setIsOpen(true)}
-            aria-label='Open menu'
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-        )}
+        <button
+          className={styles.hamburger}
+          onClick={() => setIsOpen(true)}
+          aria-label='Open menu'
+        >
+          <span />
+          <span />
+          <span />
+        </button>
       </div>
 
       {/* Full-screen modal */}
-      {(pathname === '/' || pathname === '/hr') && (
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              className={styles.modalOverlay}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            >
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className={styles.modalOverlay}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {(pathname === '/' || pathname === '/hr') && (
               <nav className={styles.modalNav}>
                 <ul>
                   {links.map(({ id, label }) => (
@@ -80,17 +79,19 @@ export default function HeaderMobile() {
                   ))}
                 </ul>
               </nav>
+            )}
 
-              {/* Close area / button */}
-              <button
-                className={styles.closeButton}
-                onClick={() => setIsOpen(false)}
-                aria-label='Close menu'
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      )}
+            <LangSwitcher />
+
+            {/* Close area / button */}
+            <button
+              className={styles.closeButton}
+              onClick={() => setIsOpen(false)}
+              aria-label='Close menu'
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
