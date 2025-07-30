@@ -20,11 +20,13 @@ export default function ServicesSection() {
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
+      // choose shift range based on screen width
+      const shiftRange = window.innerWidth < 1100 ? 60 : 75;
       let newTop = 0;
 
       if (rect.top < 500) {
         const progress = Math.min((500 - rect.top) / viewportHeight, 1);
-        newTop = 0 + progress * 75;
+        newTop = 0 + progress * shiftRange;
       }
 
       setGridTop(newTop);
