@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'motion/react';
 import styles from '../app/[locale]/page.module.scss';
 import { useTranslations } from 'next-intl';
@@ -11,6 +11,29 @@ export default function ServicesSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const [activeService, setActiveService] = useState(0);
+
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [gridTop, setGridTop] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      let newTop = 0;
+
+      if (rect.top < 500) {
+        const progress = Math.min((500 - rect.top) / viewportHeight, 1);
+        newTop = 0 + progress * 75;
+      }
+
+      setGridTop(newTop);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const services = Array.from({ length: 7 }, (_, index) =>
     t(`content.${index}.title`)
@@ -26,7 +49,7 @@ export default function ServicesSection() {
   ];
 
   // Delay so logos animate only after previous content is in view
-  const baseDelay = 1.5 + services.length * 0.2 + 0.5; // 1.5 (heading) + buttons + small buffer
+  const baseDelay = 1.5 + services.length * 0.2 + 0.5;
 
   return (
     <section id='services' className={styles.servicesSection}>
@@ -77,7 +100,7 @@ export default function ServicesSection() {
             </span>
           </h2>
 
-          <div className={styles.servicesContent}>
+          <div className={styles.servicesContent} ref={sectionRef}>
             <div className={styles.serviceButtons}>
               {services.map((service, index) => (
                 <motion.button
@@ -102,12 +125,17 @@ export default function ServicesSection() {
 
             <motion.div
               className={styles.serviceDescription}
+              style={{ position: 'relative' }}
               initial={{ opacity: 0, y: -20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-              transition={{ delay: 1.5, duration: 0.5 }}
+              transition={{
+                delay: 1.5,
+                duration: 0.5,
+              }}
             >
               <motion.p
                 key={activeService}
+                style={{ position: 'absolute', top: `${gridTop}%`, left: 0 }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
