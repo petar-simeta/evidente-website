@@ -889,6 +889,8 @@
           border-radius: 100vh;
           border: 10px solid var(--black-color);
           z-index: 2;
+          min-height: 54px;
+          min-width: 80px;
 
           &:after {
             content: '';
