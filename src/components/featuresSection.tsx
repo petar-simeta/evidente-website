@@ -45,7 +45,7 @@ export default function FeaturesSection() {
   const techsBackward = [
     'Drupal CMS',
     'JavaScript',
-    'Amarant',
+    'Tango Commerce',
     'PHP',
     'NextJS',
     'Figma',

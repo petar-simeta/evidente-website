@@ -34,7 +34,7 @@ export default function FeaturesSectionMobile() {
   const techsBackward = [
     'Drupal CMS',
     'JavaScript',
-    'Amarant',
+    'Tango Commerce',
     'PHP',
     'NextJS',
   ];
