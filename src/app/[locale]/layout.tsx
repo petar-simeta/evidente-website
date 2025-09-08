@@ -4,7 +4,7 @@ import { Unbounded } from 'next/font/google';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/src/i18n/routing';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 // Load Unbounded font for headings
 const unbounded = Unbounded({
@@ -14,13 +14,24 @@ const unbounded = Unbounded({
   weight: ['300', '400', '500'],
 });
 
-export async function generateMetadata() {
-  const t = await getTranslations('metadata');
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string };
+}) {
+  const { locale } = params;
+  const t = await getTranslations({ locale, namespace: 'metadata' });
 
   return {
     title: t('title'),
     description: t('description'),
-    metadataBase: new URL('https://evidente.hr/'),
+    metadataBase: new URL('https://evidente.hr'),
+    alternates: {
+      languages: {
+        hr: 'https://evidente.hr/hr',
+        en: 'https://evidente.hr/',
+      },
+    },
   };
 }
 
@@ -29,13 +40,12 @@ export default async function LocaleLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  params: { locale: string };
 }) {
-  // Ensure that the incoming `locale` is valid
-  const { locale } = await params;
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
+  const { locale } = params;
+  if (!hasLocale(routing.locales, locale)) notFound();
+
+  setRequestLocale(locale);
 
   return (
     <html lang={locale}>
