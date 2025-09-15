@@ -41,5 +41,7 @@ export default async function Page({
 }: {
   _params: Promise<{ locale: string }>;
 }) {
+  // consume params to satisfy @typescript-eslint/no-unused-vars without changing behavior
+  await _params;
   return <PrivacyClient />;
 }
