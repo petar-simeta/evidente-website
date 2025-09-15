@@ -35,10 +35,12 @@ export async function generateMetadata({
   };
 }
 
-export default function PrivacyLayout({
+export default async function PrivacyLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
   return children;
 }
