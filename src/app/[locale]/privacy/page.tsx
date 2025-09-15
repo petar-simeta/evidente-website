@@ -3,10 +3,11 @@ import { getTranslations } from 'next-intl/server';
 import PrivacyClient from './privacyClient';
 
 export async function generateMetadata({
-  params: { locale },
+  params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'metadata' });
 
   const base = 'https://evidente.hr';
@@ -35,6 +36,10 @@ export async function generateMetadata({
   };
 }
 
-export default function Page() {
+export default async function Page({
+  _params,
+}: {
+  _params: Promise<{ locale: string }>;
+}) {
   return <PrivacyClient />;
 }
