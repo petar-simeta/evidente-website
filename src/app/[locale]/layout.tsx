@@ -32,6 +32,17 @@ export async function generateMetadata({
         en: 'https://evidente.hr/',
       },
     },
+    verification: {
+      google: 'osp7XN8aj7fR1rLNzdT5gN0UdWobVDJRDfvKouKu0f0',
+    },
+    openGraph: {
+      type: 'website',
+      url: 'https://evidente.hr/',
+      siteName: 'EVIDENTE',
+      locale: locale === 'hr' ? 'hr_HR' : 'en_US',
+      title: t('title'),
+      description: t('description'),
+    },
   };
 }
 

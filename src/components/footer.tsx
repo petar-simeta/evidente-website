@@ -46,7 +46,7 @@ export default function Footer() {
           <div className={styles.firmInfo}>
             <span>Evidente d.o.o</span>
             <span>Prečko 22</span>
-            <span>{t('iban')}48530401743</span>
+            <span>{t('oib')}48530401743</span>
             <span>Zagreb, {t('croatia')}</span>
           </div>
 
