@@ -1,7 +1,11 @@
-import type React from 'react';
+import type { ReactNode } from 'react';
 import { getTranslations } from 'next-intl/server';
 
-export async function generateMetadata({ params }: any) {
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string };
+}) {
   const { locale } = params;
   const t = await getTranslations({ locale, namespace: 'metadata' });
 
@@ -31,6 +35,14 @@ export async function generateMetadata({ params }: any) {
   };
 }
 
-export default function PrivacyLayout(props: any) {
-  return props.children;
+export default async function PrivacyLayout({
+  children,
+  params,
+}: {
+  children: ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  // If needed later:
+  // const { locale } = await params;
+  return children;
 }
