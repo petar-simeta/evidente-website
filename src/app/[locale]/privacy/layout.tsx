@@ -31,10 +31,6 @@ export async function generateMetadata({ params }: any) {
   };
 }
 
-export default function PrivacyLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return children;
+export default function PrivacyLayout(props: any) {
+  return props.children;
 }
