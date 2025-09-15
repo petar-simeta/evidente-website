@@ -37,12 +37,8 @@ export async function generateMetadata({
 
 export default async function PrivacyLayout({
   children,
-  params,
 }: {
   children: ReactNode;
-  params: Promise<{ locale: string }>;
 }) {
-  // If needed later:
-  // const { locale } = await params;
   return children;
 }
