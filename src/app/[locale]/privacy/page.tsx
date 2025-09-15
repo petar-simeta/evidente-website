@@ -1,49 +1,40 @@
-'use client';
+import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
+import PrivacyClient from './privacyClient';
 
-import styles from '../page.module.scss';
-import Header from '../../../components/header';
-import Footer from '../../../components/footer';
-import { useTranslations } from 'next-intl';
-import HeaderMobile from '@/src/components/headerMobile';
-import { useEffect, useState } from 'react';
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'metadata' });
 
-export default function Home() {
-  const [isDesktop, setIsDesktop] = useState<boolean>(false);
-  const t = useTranslations('privacy');
+  const base = 'https://evidente.hr';
+  const path = locale === 'hr' ? '/hr/privacy' : '/privacy';
+  const url = `${base}${path}`;
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsDesktop(window.innerWidth > 1100);
-    };
+  return {
+    title: t('titlePrivacy'),
+    description: t('descriptionPrivacy'),
+    metadataBase: new URL(base),
+    alternates: {
+      canonical: url,
+      languages: {
+        hr: `${base}/hr/privacy`,
+        en: `${base}/privacy`,
+      },
+    },
+    openGraph: {
+      type: 'website',
+      url,
+      siteName: 'EVIDENTE',
+      locale: locale === 'hr' ? 'hr_HR' : 'en_US',
+      title: t('titlePrivacy'),
+      description: t('descriptionPrivacy'),
+    },
+  };
+}
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  return (
-    <div>
-      {isDesktop ? <Header /> : <HeaderMobile />}
-
-      <main>
-        <section className={styles.titleAndTextWrapper}>
-          <div className='container'>
-            <div className={styles.titleAndTextInnerWrapper}>
-              <h1>{t('title')}</h1>
-              <div className={styles.textWrapper}>
-                {t.rich('body.text', {
-                  h2: (chunks) => <h2>{chunks}</h2>,
-                  h3: (chunks) => <h3>{chunks}</h3>,
-                  h4: (chunks) => <h4>{chunks}</h4>,
-                  p: (chunks) => <p>{chunks}</p>,
-                })}
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <Footer />
-    </div>
-  );
+export default function Page() {
+  return <PrivacyClient />;
 }
