@@ -5,7 +5,7 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/src/i18n/routing';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import type { Metadata, ResolvingMetadata } from 'next';
+import type { Metadata } from 'next';
 
 // Load Unbounded font for headings
 const unbounded = Unbounded({
@@ -15,10 +15,11 @@ const unbounded = Unbounded({
   weight: ['300', '400', '500'],
 });
 
-export async function generateMetadata(
-  { params }: { params: Promise<{ locale: string }> },
-  _parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'metadata' });
 
