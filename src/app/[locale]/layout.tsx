@@ -7,6 +7,13 @@ import { routing } from '@/src/i18n/routing';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
 
+// Pre-renderiraj sve locale rute da metadata bude u <head> na prvom loadu
+export const dynamic = 'force-static';
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 // Load Unbounded font for headings
 const unbounded = Unbounded({
   subsets: ['latin'],
